@@ -1,6 +1,16 @@
 
 * [General notes](https://docs.google.com/document/d/1weC8RowQGk59pVyfBUwmcf3lb6yDYPqw2Hc6QxkNKuM)   
-* [Colab notebooks](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN)    
+* [Colab notebooks](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN) 
+
+<br>  
+
+* Chapter 2, [multi-model notebook](https://drive.google.com/file/d/1PejA_L5EIjBMtM5Hyw4Qb5jhLd0z4JeW)  
+
+  E.g. Generate image from text prompt  
+    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-04%2005_02_33-Settings.jpg" width=800>  
+
+  E.g. Descript a video in text  
+    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-04%2005_03_15-Settings.jpg" width=800>  
 
 ### **Logs**  
 
