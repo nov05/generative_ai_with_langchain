@@ -1,3 +1,15 @@
+
+* [General notes](https://docs.google.com/document/d/1weC8RowQGk59pVyfBUwmcf3lb6yDYPqw2Hc6QxkNKuM)   
+* [Colab notebooks](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN)    
+
+### **Logs**  
+
+2025-06-02 repo forked
+
+<br><br><br>  
+
+---  
+
 <h1 align="center">
 Generative AI with LangChain, Second Edition</h1>
 <p align="center">This is the code repository for <a href ="https://www.packtpub.com/en-us/product/generative-ai-with-langchain-second-edition-9781837022014"> Generative AI with LangChain, Second Edition</a>, published by Packt.
