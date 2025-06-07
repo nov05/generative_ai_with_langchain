@@ -1,6 +1,7 @@
 
 * [General notes](https://docs.google.com/document/d/1weC8RowQGk59pVyfBUwmcf3lb6yDYPqw2Hc6QxkNKuM)   
-* [**Colab notebooks**](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN) ✅
+* [**Colab notebooks**](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN) ✅  
+  *Note: Numerous minor changes, bug fixes, comments, and notes have been added to the original Jupyter notebooks to improve clarity and ensure reproducibility, especially when running them in `Google Colab`.*  
 
 <br>  
 
@@ -18,12 +19,19 @@
 
 <br>  
 
-* Chapter 4, [map-reduce notebook](https://drive.google.com/file/d/18lTgJJzWF9THjxbO5Qm8-T00Wf7AQCAx)  
+* Chapter 3, [map-reduce notebook](https://drive.google.com/file/d/18lTgJJzWF9THjxbO5Qm8-T00Wf7AQCAx)  
 
-  E.g. Process a 4-minute video and generate a summary ([Check the result](https://nbviewer.org/github/nov05/Google-Colaboratory/blob/master/20250605_map_reduce_02.ipynb))   
+  E.g. Process a 4-minute video and generate a summary ([Check the result](https://nbviewer.org/github/nov05/generative_ai_with_langchain/blob/second_edition/chapter3/20250605_map_reduce_02.ipynb))   
   E.g. Process a 10-minute video and generate a summary       
 
     <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-05%2001_07_35-20250604_map_reduce.ipynb%20-%20Colab.jpg" width=800>    
+
+* Chapter 4   
+  * OpenAI embeddings
+  * `Chroma` and `FAISS` vector stores
+  * Similarity search, max marginal relevance search, KNN retriever, PubMed retriever (external search API retriever), Query expansion, Hypothetical Document Embeddings (HyDE), Contextual Compression, Source Attribution, Self-consistency Checking    
+
+<br>  
 
 ### **Logs**  
 
