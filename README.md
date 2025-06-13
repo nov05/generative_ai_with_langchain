@@ -1,7 +1,8 @@
 
 * [General notes](https://docs.google.com/document/d/1weC8RowQGk59pVyfBUwmcf3lb6yDYPqw2Hc6QxkNKuM)   
 * [**Colab notebooks**](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN) ✅  
-  *Note: Numerous minor changes, bug fixes, comments, and notes have been added to the original Jupyter notebooks to improve clarity and ensure reproducibility, especially when running them in `Google Colab`.*  
+  * Note:   
+    Numerous minor changes, bug fixes, comments, notes, and formatting have been made to the original Jupyter notebooks to improve clarity and ensure reproducibility, especially when running them in `Google Colab`.  
 
 <br>  
 
@@ -26,10 +27,27 @@
 
     <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-05%2001_07_35-20250604_map_reduce.ipynb%20-%20Colab.jpg" width=800>    
 
-* Chapter 4   
+<br>  
+
+* [Chapter 4](https://drive.google.com/drive/folders/1Bgeuq4lJLkV-_rMOBgUNTGL3GVrHh71h)      
   * OpenAI embeddings
   * `Chroma` and `FAISS` vector stores
   * Similarity search, max marginal relevance search, KNN retriever, PubMed retriever (external search API retriever), Query expansion, Hypothetical Document Embeddings (HyDE), Contextual Compression, Source Attribution, Self-consistency Checking    
+
+<br>  
+
+* Chapter 5, [ReACT examples](https://drive.google.com/file/d/1fljLPYufX-8DUDwXVUdtiS3JTIxcbmgE)     
+
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-10%2012_35_24-05_react_example.ipynb%20-%20Colab.jpg" width=800>
+ 
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-11%2001_23_40-05_react_example.ipynb%20-%20Colab.jpg" width=800>   
+
+<br>  
+
+* Chapter 6. [Multi-agent system](https://drive.google.com/file/d/1vAYX1buFY0nq79MgbvdJxp3-WPBfmi2p), e.g. research and critique agents    
+
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-11%2013_51_33-01_Multiple-choice%20question-answering%20agent.ipynb%20-%20Colab.jpg" width = 800>   
+
 
 <br>  
 
