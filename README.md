@@ -46,7 +46,11 @@
 
 * Chapter 6. [Multi-agent system](https://drive.google.com/file/d/1vAYX1buFY0nq79MgbvdJxp3-WPBfmi2p), e.g. research and critique agents    
 
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-11%2013_51_33-01_Multiple-choice%20question-answering%20agent.ipynb%20-%20Colab.jpg" width = 800>   
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-11%2013_51_33-01_Multiple-choice%20question-answering%20agent.ipynb%20-%20Colab.jpg" width = 800>    
+
+  * **Tree-of-Thoughts (ToT)** example        
+
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-12%2013_07_49-04_Tree-of-thoughts%20(ToT)%20agent.ipynb%20-%20Colab.jpg" width=800>
 
 
 <br>  
