@@ -1,35 +1,37 @@
-
 * [General notes](https://docs.google.com/document/d/1weC8RowQGk59pVyfBUwmcf3lb6yDYPqw2Hc6QxkNKuM)   
 * [**Colab notebooks**](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN) ✅  
   *Note: Numerous minor changes, bug fixes, comments, and notes have been added to the original Jupyter notebooks to improve clarity and ensure reproducibility, especially when running them in `Google Colab`.*  
 
 <br>  
 
-### **Highlights**
+### **Detailed Feature Summary**
 
-* Chapter 2, [multi-model notebook](https://drive.google.com/file/d/1PejA_L5EIjBMtM5Hyw4Qb5jhLd0z4JeW)  
+This book provides comprehensive coverage of building production-ready LLM applications and advanced agents using Python, LangChain, and LangGraph. Key features and topics include:
 
-  E.g. Generate image from text prompt  
+*   **Chapter 1: The Rise of Generative AI:** Introduces foundational concepts of Generative AI, Large Language Models (LLMs), and the LangChain framework.
+*   **Chapter 2: First Steps with LangChain:** Covers practical setup, basic LangChain components (Models, Prompts, Parsers), and building simple LLM chains. Includes examples like text generation (e.g., from text prompts to generate images) and describing videos in text.
+*   **Chapter 3: Building Workflows with LangGraph:** Focuses on creating complex workflows and agentic systems using LangGraph. Demonstrates map-reduce techniques for tasks like video summarization (e.g., processing 4-minute and 10-minute videos).
+*   **Chapter 4: Building Intelligent RAG Systems with LangChain:** Explores Retrieval Augmented Generation (RAG) techniques, including OpenAI embeddings, vector stores (`Chroma`, `FAISS`), various search strategies (similarity, max marginal relevance, KNN), external search API integration (PubMed retriever), query expansion, Hypothetical Document Embeddings (HyDE), contextual compression, source attribution, and self-consistency checking.
+*   **Chapter 5: Building Intelligent Agents:** Delves into the design and implementation of intelligent agents, their reasoning capabilities (e.g., Tree-of-Thoughts), structured generation, and decision-making processes, including agent handoffs and error handling.
+*   **Chapter 6: Advanced Applications and Multi-Agent Systems:** Discusses advanced LangChain applications and the development of multi-agent systems for complex problem-solving, emphasizing design patterns for agentic systems.
+*   **Chapter 7: Software Development and Data Analysis Agents:** Presents agents specifically designed for software development tasks and data analysis.
+*   **Chapter 8: Evaluation and Testing of LLM Applications:** Covers enterprise-grade frameworks and methodologies for testing and evaluating the performance, reliability, and security of LLM applications.
+*   **Chapter 9: Production Deployment and Observability:** Guides on deploying LLM applications into production environments, including monitoring, observability, cost/performance optimization, and ensuring secure, compliant AI systems with built-in safeguards and responsible development principles. Also covers working with various LLM providers like Google Gemini, Anthropic, Mistral, DeepSeek, and OpenAI o3-mini.
 
-    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-04%2005_02_33-Settings.jpg" width=800>  
+<br>
 
-  E.g. Describe a video in text    
+### **Important Notes for Users**
 
-    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-04%2005_03_15-Settings.jpg" width=800>  
-
-<br>  
-
-* Chapter 3, [map-reduce notebook](https://drive.google.com/file/d/18lTgJJzWF9THjxbO5Qm8-T00Wf7AQCAx)  
-
-  E.g. Process a 4-minute video and generate a summary ([Check the result](https://nbviewer.org/github/nov05/generative_ai_with_langchain/blob/second_edition/chapter3/20250605_map_reduce_02.ipynb))   
-  E.g. Process a 10-minute video and generate a summary       
-
-    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-05%2001_07_35-20250604_map_reduce.ipynb%20-%20Colab.jpg" width=800>    
-
-* Chapter 4   
-  * OpenAI embeddings
-  * `Chroma` and `FAISS` vector stores
-  * Similarity search, max marginal relevance search, KNN retriever, PubMed retriever (external search API retriever), Query expansion, Hypothetical Document Embeddings (HyDE), Contextual Compression, Source Attribution, Self-consistency Checking    
+*   **Repository Branches:** This repository has multiple branches corresponding to different editions and updates of the book:
+    *   [`second_edition`](https://github.com/benman1/generative_ai_with_langchain/tree/second_edition): For the 2nd edition of the book (LangChain v0.3). This is the active branch for current development.
+    *   [`softupdate`](https://github.com/benman1/generative_ai_with_langchain/tree/softupdate): For the soft update (2024, LangChain v0.1.13).
+    *   [`main`](https://github.com/benman1/generative_ai_with_langchain/tree/main): For the original version of the book (December 2023).
+    Please ensure you are using the branch that aligns with your book version and LangChain setup.
+*   **Colab Notebooks:** Many examples are provided as Jupyter notebooks. Numerous minor changes, bug fixes, comments, and notes have been added to these notebooks to improve clarity and ensure reproducibility, especially when running them in `Google Colab`. You can find direct links to these Colab notebooks [here](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN).
+*   **Setup and Dependencies:** For a smooth experience, please refer to the detailed setup instructions in Chapter 2 of the book or the `SETUP.md` file in this repository. Following these instructions carefully will help avoid common issues with dependencies and API keys.
+*   **Code Stability and Updates:** LangChain is a rapidly evolving library. While we strive to keep the repository updated with significant LangChain developments, our primary goal is to provide stable, reliable, and valuable code examples that align with the book's content. Therefore, the repository might not always match every minor LangChain update. We aim for consistency to ensure a seamless learning experience.
+*   **Getting Support:** If you encounter issues, have suggestions, or questions, please do not hesitate to open an issue on GitHub. Your feedback is invaluable. You can also engage with the authors and other readers on the [Discord server](https://discord.gg/YQbX5rsc74) for discussions and latest updates.
+*   **Free Resources:** If you have purchased an up-to-date print or Kindle version of this book, you can get a DRM-free PDF version at no cost via [Packt's website](https://packt.link/free-ebook/9781837022014). Additionally, a graphic bundle containing color images of the screenshots and diagrams used in this book is available at [Packt's Graphic Bundle page](https://packt.link/gbp/9781837022014).
 
 <br>  
 
@@ -88,8 +90,9 @@ Whether you're extending existing workflows or architecting multi-agent systems 
 
   </details>
   <details open>
-<summary><h2>Note to Readers</summary>
+<summary><h2>Note to Readers - Combined into "Important Notes for Users"</h2>
 
+<!--
 Thank you for choosing "Generative AI with LangChain"! We appreciate your enthusiasm and feedback.
 
 Please note that we've released several updated versions of the book. Consequently, there are three different branches for this repository: 
@@ -98,6 +101,7 @@ Please note that we've released several updated versions of the book. Consequent
 * [main](https://github.com/benman1/generative_ai_with_langchain/tree/main) - this is the original version of the book (December 2023).
 
 Please refer to the version that you are interested in or that corresponds to your version of the book.
+-->
 </details>
 
 <details open>
@@ -111,14 +115,15 @@ We  provide a PDF file that has color images of the screenshots/diagrams used in
 </details>
 
 <details open>
-<summary><h3>Commitment</summary>
-
+<summary><h3>Commitment - Combined into "Important Notes for Users"</h3>
+<!--
 <b>Code Updates:</b> Our commitment is to provide you with stable and valuable code examples. While LangChain is known for frequent updates, we understand the importance of aligning our code with the latest changes. The companion repository is regularly updated to harmonize with LangChain developments.
 
 <b>Expect Stability:</b> For stability and usability, the repository might not match every minor LangChain update. We aim for consistency and reliability to ensure a seamless experience for our readers. 
 
 <b>How to Reach Us:</b> Encountering issues or have suggestions? Please don't hesitate to open an issue, and we'll promptly address it. Your feedback is invaluable, and we're here to support you in your journey with LangChain.
 Thank you for your understanding and happy coding!
+-->
 </details>
 
 <details open> 
@@ -177,7 +182,5 @@ We welcome contributions from developers of all levels. If you'd like to contrib
 _Ben Auffarth_ Ben Auffarth is a full-stack data scientist with more than 15 years of work experience. With a background and Ph.D. in computational and cognitive neuroscience, he has designed and conducted wet lab experiments on cell cultures, analyzed experiments with terabytes of data, run brain models on IBM supercomputers with up to 64k cores, built production systems processing hundreds and thousands of transactions per day, and trained language models on a large corpus of text documents. He co-founded and is the former president of Data Science Speakers, London.
 
 _Leonid Kuligin_ Leonid Kuligin is a staff AI engineer at Google Cloud, working on generative AI and classical machine learning solutions (such as demand forecasting or optimization problems). Leonid is one of the key maintainers of Google Cloud integrations on LangChain, and a visiting lecturer at CDTM (TUM and LMU). Prior to Google, Leonid gained more than 20 years of experience in building B2C and B2B applications based on complex machine learning and data processing solutions such as search, maps, and investment management in German, Russian, and US technological, financial, and retail companies.
-
-
 
 </details>
