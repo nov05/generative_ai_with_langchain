@@ -2,7 +2,7 @@
 * [General notes](https://docs.google.com/document/d/1weC8RowQGk59pVyfBUwmcf3lb6yDYPqw2Hc6QxkNKuM)   
 * [**Colab notebooks**](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN) ✅  
   * Note:   
-    Numerous minor changes, bug fixes, comments, notes, and formatting have been made to the original Jupyter notebooks to improve clarity and ensure reproducibility, especially when running them in `Google Colab`.  
+    Numerous small updates — including API adjustments, bug fixes, added comments and notes, and formatting improvements—have been made to the original Jupyter notebooks to enhance clarity and ensure reproducibility, especially when running them in `Google Colab`.  
 
 <br>  
 
@@ -92,6 +92,14 @@
   * [Notebook 2, advanced evaluation](https://nbviewer.org/github/nov05/Google-Colaboratory/blob/master/generative_ai_with_langchain/08_02_advanced_evaluation.ipynb)   
 
   <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-13%2022_42_52-chapter%208%20notebook%202%20langsmith%20eval%20trajectory.jpg" width=800>
+
+  * [Notebook 3, `LangSmith` evaluation](https://nbviewer.org/github/nov05/Google-Colaboratory/blob/master/generative_ai_with_langchain/08_03_langsmith_evaluation.ipynb)  
+
+  Insurance claim text exaction example   
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-14%2002_59_42-08_03_insurance%20claim%20text%20extraction.jpg" width=800>   
+
+  Tracing with `LangSmith`   
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-14%2002_56_11-08_03_langsmith_eval_insurance_claim_text_extraction_.jpg" width=800>
 
 <br>  
 
