@@ -8,35 +8,49 @@
 
 ### **Highlights**
 
-* Chapter 2, [multi-model notebook](https://drive.google.com/file/d/1PejA_L5EIjBMtM5Hyw4Qb5jhLd0z4JeW)  
+* **Chapter 2** 
+
+  * [Notebook 5, multi-model](https://github.com/nov05/Google-Colaboratory/blob/master/generative_ai_with_langchain/20250602_05_multimodal_(Image_generation_and_understanding).ipynb)  
 
   E.g. Generate image from text prompt  
 
-    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-04%2005_02_33-Settings.jpg" width=800>  
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-04%2005_02_33-Settings.jpg" width=800>  
 
-  E.g. Describe a video in text    
+    E.g. Describe a video in text    
 
-    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-04%2005_03_15-Settings.jpg" width=800>  
-
-<br>  
-
-* Chapter 3, [map-reduce notebook](https://drive.google.com/file/d/18lTgJJzWF9THjxbO5Qm8-T00Wf7AQCAx)  
-
-  E.g. Process a 4-minute video and generate a summary ([Check the result](https://nbviewer.org/github/nov05/generative_ai_with_langchain/blob/second_edition/chapter3/20250605_map_reduce_02.ipynb))   
-  E.g. Process a 10-minute video and generate a summary       
-
-    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-05%2001_07_35-20250604_map_reduce.ipynb%20-%20Colab.jpg" width=800>    
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-04%2005_03_15-Settings.jpg" width=800>  
 
 <br>  
 
-* [Chapter 4](https://drive.google.com/drive/folders/1Bgeuq4lJLkV-_rMOBgUNTGL3GVrHh71h)      
+* **Chapter 3**
+
+  * [Notebook 6, map-reduce](https://drive.google.com/file/d/18lTgJJzWF9THjxbO5Qm8-T00Wf7AQCAx)  
+
+    * E.g. Process a 4-minute video and generate a summary ([Check the result](https://nbviewer.org/github/nov05/generative_ai_with_langchain/blob/second_edition/chapter3/20250605_map_reduce_02.ipynb))  
+
+    * E.g. Process a 10-minute video and generate a summary       
+
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-05%2001_07_35-20250604_map_reduce.ipynb%20-%20Colab.jpg" width=800>   
+
+  <br>  
+
+  * [Notebook 8](https://drive.google.com/file/d/1kDf2t02MfRPa89kMOtw73-uxqWDqBd8F), using `LangSmith` tracing to log model performance 
+
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-13%2006_11_56-generative_ai_with_langchain%20-%20LangSmith.jpg" width=800> 
+
+<br>  
+
+* [**Chapter 4**](https://drive.google.com/drive/folders/1Bgeuq4lJLkV-_rMOBgUNTGL3GVrHh71h)      
+
   * OpenAI embeddings
   * `Chroma` and `FAISS` vector stores
   * Similarity search, max marginal relevance search, KNN retriever, PubMed retriever (external search API retriever), Query expansion, Hypothetical Document Embeddings (HyDE), Contextual Compression, Source Attribution, Self-consistency Checking    
 
 <br>  
 
-* Chapter 5, [ReACT examples](https://drive.google.com/file/d/1fljLPYufX-8DUDwXVUdtiS3JTIxcbmgE)     
+* **Chapter 5**
+
+  * [Notebook 5, ReAct examples](https://drive.google.com/file/d/1fljLPYufX-8DUDwXVUdtiS3JTIxcbmgE)     
 
   <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-10%2012_35_24-05_react_example.ipynb%20-%20Colab.jpg" width=800>
  
@@ -44,13 +58,32 @@
 
 <br>  
 
-* Chapter 6. [Multi-agent system](https://drive.google.com/file/d/1vAYX1buFY0nq79MgbvdJxp3-WPBfmi2p), e.g. research and critique agents    
+* **Chapter 6**
+
+  * [Notebook 1, Multi-agent system](https://drive.google.com/file/d/1vAYX1buFY0nq79MgbvdJxp3-WPBfmi2p), e.g. research and critique agents    
 
   <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-11%2013_51_33-01_Multiple-choice%20question-answering%20agent.ipynb%20-%20Colab.jpg" width = 800>    
 
-  * **Tree-of-Thoughts (ToT)** example        
+  <br>  
+
+  * Notebook 4, **Tree-of-Thoughts (ToT)** example        
 
   <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-12%2013_07_49-04_Tree-of-thoughts%20(ToT)%20agent.ipynb%20-%20Colab.jpg" width=800>
+
+
+<br>  
+
+* **Chapter 7**
+
+  * [Notebook 4, Build a RAG on a documentation website](https://github.com/nov05/Google-Colaboratory/blob/master/generative_ai_with_langchain/04_langchain_rag.ipynb)  
+
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-13%2017_15_16-04_langchain_rag.ipynb%20-%20Colab.jpg" width=800>   
+
+  <br>  
+
+  * [Notebook 5, Data Science (agent for Pandas dataframe)](https://github.com/nov05/Google-Colaboratory/blob/master/generative_ai_with_langchain/07_05_data_science.ipynb)  
+
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-13%2018_40_45-07_05_data_science.ipynb%20-%20Colab.jpg" width=800>   
 
 
 <br>  
