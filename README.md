@@ -66,7 +66,7 @@
 
   <br>  
 
-  * Notebook 4, **Tree-of-Thoughts (ToT)** example        
+  * Notebook 4, **Tree-of-Thoughts (ToT)** example (naive, without Monte Carlo tree search)         
 
   <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-12%2013_07_49-04_Tree-of-thoughts%20(ToT)%20agent.ipynb%20-%20Colab.jpg" width=800>
 
@@ -85,6 +85,13 @@
 
   <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-13%2018_40_45-07_05_data_science.ipynb%20-%20Colab.jpg" width=800>   
 
+<br>
+
+* **Chapter 8**
+
+  * [Notebook 2, advanced evaluation](https://nbviewer.org/github/nov05/Google-Colaboratory/blob/master/generative_ai_with_langchain/08_02_advanced_evaluation.ipynb)   
+
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-13%2022_42_52-chapter%208%20notebook%202%20langsmith%20eval%20trajectory.jpg" width=800>
 
 <br>  
 
