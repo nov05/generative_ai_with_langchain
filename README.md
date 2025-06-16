@@ -66,7 +66,7 @@
 
   <br>  
 
-  * Notebook 4, **Tree-of-Thoughts (ToT)** example (naive, without Monte Carlo tree search)         
+  * Notebook 4, **Tree-of-Thoughts (ToT)** example (naive, without Monte Carlo tree search) ([GitHub copy with nbviwer](https://nbviewer.org/github/nov05/Google-Colaboratory/blob/master/generative_ai_with_langchain/04_Tree_of_thoughts_%28ToT%29_agent.ipynb), [my post](https://www.linkedin.com/posts/wenjingliu7_langchain-treeofthoughts-llm-activity-7340456103966646273-zkJ6/))         
 
   <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-12%2013_07_49-04_Tree-of-thoughts%20(ToT)%20agent.ipynb%20-%20Colab.jpg" width=800>
 
