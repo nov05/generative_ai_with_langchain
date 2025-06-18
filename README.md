@@ -3,14 +3,17 @@
 * [**Colab notebooks**](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN) (Chapter 2-8) ✅  
   * Note:   
     Numerous small updates — including API adjustments, bug fixes, added comments and notes, and formatting improvements—have been made to the original Jupyter notebooks to enhance clarity and ensure reproducibility, especially when running them in `Google Colab`.  
-* [**Applications**](https://github.com/nov05/generative_ai_with_langchain/tree/second_edition/chapter9) (Chapter 9)   
+* [**Applications**](https://github.com/nov05/generative_ai_with_langchain/tree/second_edition/chapter9) (Chapter 9) ✅   
   * Note:  
-    The `requirements.txt` has been updated, the `.devcontainer` folder added to the repository, and minor bug fixes and changes applied to the original code.  
-
+    The `requirements.txt` has been updated, [the `.devcontainer` folder](https://github.com/nov05/generative_ai_with_langchain/tree/second_edition/.devcontainer) added to the repository, and minor bug fixes and changes applied to the original code.  
+* Environments:
+  * For Jupyter notebooks: `Google Colab` (free version)
+  * For local applications: `Windows 11`, `VS Code` with `Dev Container`, `Docker Desktop`, `WSL2` (Ubuntu-22.04)  
+  * Model related services: `LangSmith` APIs, `Google Cloud Platform` (GCP, with billing account, service account, VertexAI APIs), `OpenAI` APIs (with billing), `Anthropic` APIs (with billing), `Mistral AI` APIs, `Replicate` APIs (with [billing](https://replicate.com/account/billing)), `Stability AI` APIs (with [billing](https://platform.stability.ai/account/credits)), `HuggingFace` APIs
 
 <br>  
 
-### **Highlights**
+### 👉 **Highlights**
 
 * **Chapter 2** 
 
@@ -123,21 +126,29 @@
 
 <br>  
 
-### Set up `config.py` and place it at the root of the repository
+### 👉 **Create enviroment variables for API keys**    
 
-```python
-import os
-def set_environment():
-    os.environ["ANTHROPIC_API_KEY"] = (
-        "..."
-    )
-    ## Other API Keys
-    ...
-```
+  * Locally, create `config.py` and place it at the root of the repository
+
+    ```python
+    import os
+    def set_environment():
+        os.environ["ANTHROPIC_API_KEY"] = (
+            "..."
+        )
+        ## Other API Keys
+        ...
+    ```
+  <br>  
+
+  * In `Google Colab`, store the keys as secrets.  
+
+    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-18%2016_18_34-Settings.jpg" width=800>   
+
 
 <br>  
 
-### **Logs**  
+### 👉 **Logs**  
 
 2025-06-02 Repo forked
 2025-06-16 All notebooks (Chapter 1-8) done
