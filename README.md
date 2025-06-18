@@ -103,6 +103,16 @@
 
 <br>  
 
+* **Chapter 9**  
+
+  * Application 1, Building a chat bot with FastAPI (locally, off notebook)
+    ```python
+    ## Launch the app
+    $ python -m chapter9.fastapi.main
+    ```
+
+<br>  
+
 ### Set up `config.py` and place it at the root of the repository
 
 ```python
@@ -111,7 +121,11 @@ def set_environment():
     os.environ["ANTHROPIC_API_KEY"] = (
         "..."
     )
+    ## Other API Keys
+    ...
 ```
+
+<br>  
 
 ### **Logs**  
 

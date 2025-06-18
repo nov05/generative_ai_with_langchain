@@ -57,7 +57,7 @@ async def chat(request: Request):
         response = regular_llm.invoke(messages)
     except Exception as e:
         logger.exception(
-            "⚠️  Regular LLM invocation error: {e}")
+            f"⚠️  Regular LLM invocation error: {e}")
     return {"response": response.content}
 
 
@@ -82,6 +82,13 @@ async def websocket_endpoint(websocket: WebSocket):
                 user_message = parsed_data.get("message", "")
             except json.JSONDecodeError:
                 user_message = data
+
+            # Send user message, added by nov05
+            await websocket.send_json({
+                "sender": "you",
+                "message_type": "message",
+                "message": user_message
+            })
 
             if not user_message:
                 await websocket.send_json({
@@ -113,7 +120,7 @@ async def websocket_endpoint(websocket: WebSocket):
                     await streaming_llm.ainvoke(messages)
                 except Exception as e:
                     logger.exception(
-                        "⚠️  Streaming LLM asynchronous invocation error: {e}")
+                        f"⚠️  Streaming LLM asynchronous invocation error: {e}")
 
             task = asyncio.create_task(generate_response())
 
