@@ -53,7 +53,11 @@ async def chat(request: Request):
 
     # Create the messages for the LLM
     messages = [HumanMessage(content=user_message)]
-    response = regular_llm.invoke(messages)
+    try:
+        response = regular_llm.invoke(messages)
+    except Exception as e:
+        logger.exception(
+            "⚠️  Regular LLM invocation error: {e}")
     return {"response": response.content}
 
 
@@ -109,7 +113,7 @@ async def websocket_endpoint(websocket: WebSocket):
                     await streaming_llm.ainvoke(messages)
                 except Exception as e:
                     logger.exception(
-                        "⚠️  Streaming LLM asynchronous invocation error")
+                        "⚠️  Streaming LLM asynchronous invocation error: {e}")
 
             task = asyncio.create_task(generate_response())
 
