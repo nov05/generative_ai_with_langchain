@@ -22,7 +22,7 @@ search_engine/faiss_index.db/
 # IDEs
 .idea
 .vs/
-.vscode/
+# .vscode/
 .spyderproject
 .spyproject
 .ipynb_checkpoints

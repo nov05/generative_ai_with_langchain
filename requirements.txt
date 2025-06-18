@@ -3,17 +3,22 @@ datasets==3.4.0
 duckduckgo_search==7.5.2
 huggingface-hub==0.28.1
 jupyter
-langchain-core==0.3.33
-langchain[docarray]==0.3.17
+# langchain-core==0.3.33      ## nov05
+langchain-core==0.3.65        ## nov05
+# langchain[docarray]==0.3.17 ## nov05
+langchain[docarray]==0.3.25   ## nov05
 langchain-community==0.3.16
 langchain-openai==0.3.3
 langchain-anthropic==0.3.5
 langchain-google-genai==2.1.0
 langchain-google-vertexai>=2.0.16
-langchain-text-splitters==0.3.5
+# langchain-text-splitters==0.3.5  ## nov05
+langchain-text-splitters==0.3.8    ## nov05
 langchain_huggingface==0.1.2
-langsmith==0.3.15
-langgraph==0.3.69
+# langsmith==0.3.15           ## nov05
+langsmith==0.3.45             ## nov05
+# langgraph==0.3.69           ## nov05
+langgraph==0.4.0              ## nov05
 ruff==0.9.4
 streamlit==1.37.1
 langchain-ollama==0.2.3
