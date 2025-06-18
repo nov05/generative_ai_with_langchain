@@ -103,9 +103,20 @@
 
 <br>  
 
+### Set up `config.py` and place it at the root of the repository
+
+```python
+import os
+def set_environment():
+    os.environ["ANTHROPIC_API_KEY"] = (
+        "..."
+    )
+```
+
 ### **Logs**  
 
-2025-06-02 repo forked
+2025-06-02 Repo forked
+2025-06-16 All notebooks (Chapter 1-8) done
 
 <br><br><br>  
 

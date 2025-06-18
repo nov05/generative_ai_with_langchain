@@ -9,8 +9,8 @@ from langchain_openai.chat_models import ChatOpenAI
 from starlette.requests import Request
 from starlette.templating import Jinja2Templates
 
-set_environment()
 
+set_environment()
 app = FastAPI()
 
 
@@ -33,8 +33,17 @@ async def get(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
-langchain_router = LangchainRouter(langchain_url="/chat", langchain_object=chain, streaming_mode=1)
-langchain_router.add_langchain_api_route("/chat_json", langchain_object=chain, streaming_mode=2)
-langchain_router.add_langchain_api_websocket_route("/ws", langchain_object=chain)
+langchain_router = LangchainRouter(
+    langchain_url="/chat",
+    langchain_object=chain,
+    streaming_mode=1)
+langchain_router.add_langchain_api_route(
+    "/chat_json",
+    langchain_object=chain,
+    streaming_mode=2)
+langchain_router.add_langchain_api_websocket_route(
+    "/ws",
+    langchain_object=chain)
+
 
 app.include_router(langchain_router)

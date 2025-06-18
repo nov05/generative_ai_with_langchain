@@ -1,4 +1,5 @@
-"""FastAPI webapp."""
+"""FastAPI webapp"""
+import os
 import asyncio
 import logging
 import json
@@ -10,31 +11,39 @@ from langchain.callbacks import AsyncIteratorCallbackHandler
 from langchain_anthropic import ChatAnthropic
 from langchain_core.messages import HumanMessage
 import uvicorn
+# Local imports
+from config import set_environment
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-from config import set_environment
 set_environment()
 
 # Initialize FastAPI app
 app = FastAPI()
 
 # Setup templates and static files
-templates = Jinja2Templates(directory="templates")
-app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="chapter9/templates")
+app.mount("/static", StaticFiles(directory="chapter9/fastapi/static"), name="static")
 
 # Initialize a non-streaming LLM for the regular API endpoints
 regular_llm = ChatAnthropic(
-    model="claude-3-sonnet-20240229",
-    temperature=0
+    # model="claude-3-sonnet-20240229",
+    model='claude-3-opus-20240229',
+    temperature=0,
 )
 
+
 # Root endpoint
+
+
 @app.get("/", response_class=HTMLResponse)
 async def get(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
+
 # Chat endpoint
+
+
 @app.post("/chat")
 async def chat(request: Request):
     data = await request.json()
@@ -47,7 +56,10 @@ async def chat(request: Request):
     response = regular_llm.invoke(messages)
     return {"response": response.content}
 
+
 # WebSocket for streaming responses
+
+
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
@@ -83,7 +95,8 @@ async def websocket_endpoint(websocket: WebSocket):
 
             # Create a streaming model instance with the callback handler for this specific request
             streaming_llm = ChatAnthropic(
-                model="claude-3-sonnet-20240229",
+                # model="claude-3-sonnet-20240229",
+                model='claude-3-opus-20240229',
                 temperature=0,
                 callbacks=[callback_handler],
                 streaming=True
@@ -92,7 +105,11 @@ async def websocket_endpoint(websocket: WebSocket):
             # Start generation in a background task
             async def generate_response():
                 messages = [HumanMessage(content=user_message)]
-                await streaming_llm.ainvoke(messages)
+                try:
+                    await streaming_llm.ainvoke(messages)
+                except Exception as e:
+                    logger.exception(
+                        "⚠️  Streaming LLM asynchronous invocation error")
 
             task = asyncio.create_task(generate_response())
 
@@ -123,5 +140,9 @@ async def websocket_endpoint(websocket: WebSocket):
             "message": f"Error: {str(e)}"
         })
 
+
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+
+    # uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("chapter9.fastapi.main:app",
+                host="0.0.0.0", port=8000, reload=True)

@@ -13,18 +13,20 @@ either CPU or GPU, which can be installed like this:
 
 """
 import time
-
 import numpy as np
 import ray
 from bs4 import BeautifulSoup as Soup
-from config import set_environment
 from langchain_community.document_loaders import RecursiveUrlLoader
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
 from langchain_openai.embeddings import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from search_engine.utils import INDEX_PATH, get_embeddings
+# Local imports
+from config import set_environment
+# from search_engine.utils import INDEX_PATH, get_embeddings  ## nov05
+from utils import INDEX_PATH, get_embeddings  # nov05
+
 
 # set keys:
 set_environment()
@@ -92,6 +94,7 @@ def create_db_parallel(chunks: list[Document]):
 
 
 if __name__ == "__main__":
+
     print("Starting indexing process.")
     st = time.time()
     chunks = chunk_docs(url="https://docs.ray.io/en/latest/")
