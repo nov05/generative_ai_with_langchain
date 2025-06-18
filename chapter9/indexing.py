@@ -23,7 +23,7 @@ from langchain_openai.embeddings import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # Local imports
-from config import set_environment
+from chapter9.fastapi.config import set_environment
 # from search_engine.utils import INDEX_PATH, get_embeddings  ## nov05
 from utils import INDEX_PATH, get_embeddings  # nov05
 

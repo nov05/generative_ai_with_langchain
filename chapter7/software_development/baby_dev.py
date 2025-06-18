@@ -1,6 +1,6 @@
 """Task planner and executor for software development."""
 
-from config import set_environment
+from chapter9.fastapi.config import set_environment
 from langchain.chains import LLMChain
 from langchain_community.tools import DuckDuckGoSearchResults
 from langchain_core.prompts import PromptTemplate

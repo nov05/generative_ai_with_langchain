@@ -24,7 +24,6 @@ class SearchDeployment:
 
         # Check if index directory exists
         import os
-
         if not os.path.exists("faiss_index") or not os.path.isdir("faiss_index"):
             error_msg = """
 ERROR: FAISS index directory not found!
@@ -55,7 +54,7 @@ Please rebuild the index by running:
             print(error_msg)
             raise RuntimeError(error_msg)
 
-        print("SearchDeployment initialized successfully")
+        print("🟢 SearchDeployment initialized successfully")
 
     async def __call__(self, request):
         query = request.query_params.get("query", "")
@@ -110,11 +109,11 @@ async def search(query: str = ""):
 
 
 if __name__ == "__main__":
+
     try:
         # Deploy the search service
         deployment = SearchDeployment.bind()
         serve.run(deployment)
-
         print("\n" + "=" * 60)
         print("Service started successfully!")
         print("=" * 60)
@@ -126,15 +125,13 @@ if __name__ == "__main__":
     except FileNotFoundError as e:
         # Index not found error is already handled with a clear message
         import sys
-
         sys.exit(1)
     except Exception as e:
-        print(f"\nERROR: Failed to start service: {str(e)}")
-        print("\nIf this is related to the FAISS index, please rebuild it with:")
-        print("    python build_index.py\n")
+        print(
+            f"⚠️  ERROR: Failed to start service: {e}\n"
+            "If this is related to the FAISS index, please rebuild it with:"
+            "$ python build_index.py")
         import traceback
-
         traceback.print_exc()
         import sys
-
         sys.exit(1)

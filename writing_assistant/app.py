@@ -3,7 +3,7 @@
 Run like this:
 >> gradio writing_assistant/app.py."""
 import gradio as gr
-from config import set_environment
+from chapter9.fastapi.config import set_environment
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai.chat_models import ChatOpenAI
 

@@ -1,7 +1,7 @@
 """LLM Webserver with Flask and Lanarky.
 Adapted from https://github.com/ajndkr/lanarky/blob/main/examples/app/conversation_chain.py
 """
-from config import set_environment
+from chapter9.fastapi.config import set_environment
 from fastapi import FastAPI
 from lanarky import LangchainRouter
 from langchain.chains import ConversationChain

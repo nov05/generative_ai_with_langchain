@@ -1,5 +1,5 @@
 """FastAPI webapp"""
-import os
+
 import asyncio
 import logging
 import json
@@ -22,8 +22,8 @@ set_environment()
 app = FastAPI()
 
 # Setup templates and static files
-templates = Jinja2Templates(directory="chapter9/templates")
-app.mount("/static", StaticFiles(directory="chapter9/fastapi/static"), name="static")
+templates = Jinja2Templates(directory="templates")
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Initialize a non-streaming LLM for the regular API endpoints
 regular_llm = ChatAnthropic(
@@ -34,16 +34,12 @@ regular_llm = ChatAnthropic(
 
 
 # Root endpoint
-
-
 @app.get("/", response_class=HTMLResponse)
 async def get(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
 # Chat endpoint
-
-
 @app.post("/chat")
 async def chat(request: Request):
     data = await request.json()
@@ -62,8 +58,6 @@ async def chat(request: Request):
 
 
 # WebSocket for streaming responses
-
-
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
@@ -154,6 +148,4 @@ async def websocket_endpoint(websocket: WebSocket):
 
 if __name__ == "__main__":
 
-    # uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
-    uvicorn.run("chapter9.fastapi.main:app",
-                host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

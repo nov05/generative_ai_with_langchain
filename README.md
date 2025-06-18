@@ -1,9 +1,9 @@
 
 * [General notes](https://docs.google.com/document/d/1weC8RowQGk59pVyfBUwmcf3lb6yDYPqw2Hc6QxkNKuM)   
-* [**Colab notebooks**](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN) (Chapter 2-8) ✅  
+* [**Colab notebooks**](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN) (Chapter 2-8, notebooks in Colab) ✅  
   * Note:   
     Numerous small updates — including API adjustments, bug fixes, added comments and notes, and formatting improvements—have been made to the original Jupyter notebooks to enhance clarity and ensure reproducibility, especially when running them in `Google Colab`.  
-* [**Applications**](https://github.com/nov05/generative_ai_with_langchain/tree/second_edition/chapter9) (Chapter 9) ✅   
+* [**Applications**](https://github.com/nov05/generative_ai_with_langchain/tree/second_edition/chapter9) (Chapter 9, run locally) ✅   
   * Note:  
     The `requirements.txt` has been updated, [the `.devcontainer` folder](https://github.com/nov05/generative_ai_with_langchain/tree/second_edition/.devcontainer) added to the repository, and minor bug fixes and changes applied to the original code.  
 * Environments:
@@ -14,6 +14,30 @@
 <br>  
 
 ### 👉 **Highlights**
+
+
+* **Chapter 9** (locally, off notebook) 
+
+  * Web application 1, **Build a chatbot** with `FastAPI`, `WebSocket`, and `Claude APIs` (model="claude-3-opus-20240229")  
+
+    * Prerequisites: You have `Docker Desktop` and `WSL2` installed, and Docker set to use Linux containers.  
+    * Create `config.py` in the `<repo>/chapter9/fastapi` directory.  
+    * In `VS Code`: Press `F1` -> Choose `Dev Containers: Rebuild Container` (It takes about 15 minutes to build.)
+    * Menu: `Terminal` -> `New Terminal` (Make sure it is `bash - generative_ai_with_langchain`.) 
+      ```python
+      ## Launch the app
+      $ cd chapter9/fastapi
+      $ python main.py
+      ```
+    * Open http://localhost:8000/ in the browser.
+
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-18%2015_52_12-Chatbot%20Playground_chapter9.jpg" width=800>
+
+  <br>  
+
+  * Web application 2, **Build a search tool** with `FAISS` (vectore store for RAG), `Ray Serve`, `FastAPI`, and `HuggingFace` embedding ("sentence-transformers/all-mpnet-base-v2")
+
+<br>
 
 * **Chapter 2** 
 
@@ -108,27 +132,11 @@
   Tracing with `LangSmith`   
   <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-14%2002_56_11-08_03_langsmith_eval_insurance_claim_text_extraction_.jpg" width=800>
 
-<br>  
-
-* **Chapter 9**  
-
-  * Web Application, Build a chatbot with `FastAPI`, `WebSocket`, and `Claude APIs` (locally, off notebook)  
-
-    * In `VS Code`: Press `F1` -> Choose `Dev Containers: Rebuild Container` 
-    * Menu: `Terminal` -> `New Terminal` (Make sure it is `bash - generative_ai_with_langchain`.) 
-    ```python
-    ## Launch the app
-    $ python -m chapter9.fastapi.main
-    ```
-    * Open http://localhost:8000/ in the browser.
-
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-18%2015_52_12-Chatbot%20Playground_chapter9.jpg" width=800>
-
-<br>  
+<br>    
 
 ### 👉 **Create enviroment variables for API keys**    
 
-  * Locally, create `config.py` and place it at the root of the repository
+  * Locally, create `config.py` and place it at the right directories.   
 
     ```python
     import os
@@ -136,12 +144,12 @@
         os.environ["ANTHROPIC_API_KEY"] = (
             "..."
         )
-        ## Other API Keys
+        ## And/Or other API Keys
         ...
     ```
   <br>  
 
-  * In `Google Colab`, store the keys as secrets.  
+  * In `Google Colab`, store the API keys as secrets.  
 
     <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-18%2016_18_34-Settings.jpg" width=800>   
 

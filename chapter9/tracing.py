@@ -2,7 +2,7 @@
 import subprocess
 from urllib.parse import urlparse
 
-from config import set_environment
+from chapter9.fastapi.config import set_environment
 from langchain.agents import AgentType, initialize_agent
 from langchain_core.tools import StructuredTool
 from langchain_openai.chat_models import ChatOpenAI

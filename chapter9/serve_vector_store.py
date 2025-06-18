@@ -11,7 +11,7 @@ You can run this from the terminal in the search_engine directory like this:
 import time
 
 import requests
-from config import set_environment
+from chapter9.fastapi.config import set_environment
 from fastapi import FastAPI
 from langchain_community.vectorstores import FAISS
 from ray import serve

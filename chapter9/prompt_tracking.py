@@ -4,7 +4,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
 from promptwatch import PromptWatch
 
-from config import set_environment
+from chapter9.fastapi.config import set_environment
 
 set_environment()
 

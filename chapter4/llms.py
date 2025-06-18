@@ -4,7 +4,7 @@ from langchain.storage import LocalFileStore
 from langchain_groq import ChatGroq
 from langchain_openai import OpenAIEmbeddings
 
-from config import set_environment
+from chapter9.fastapi.config import set_environment
 
 set_environment()
 

@@ -1,6 +1,6 @@
 """Agent functionality."""
 import pandas as pd
-from config import set_environment
+from chapter9.fastapi.config import set_environment
 from langchain.agents import AgentExecutor
 from langchain_core.prompts import PromptTemplate
 from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
