@@ -1,8 +1,12 @@
 
 * [General notes](https://docs.google.com/document/d/1weC8RowQGk59pVyfBUwmcf3lb6yDYPqw2Hc6QxkNKuM)   
-* [**Colab notebooks**](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN) ✅  
+* [**Colab notebooks**](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN) (Chapter 2-8) ✅  
   * Note:   
     Numerous small updates — including API adjustments, bug fixes, added comments and notes, and formatting improvements—have been made to the original Jupyter notebooks to enhance clarity and ensure reproducibility, especially when running them in `Google Colab`.  
+* [**Applications**](https://github.com/nov05/generative_ai_with_langchain/tree/second_edition/chapter9) (Chapter 9)   
+  * Note:  
+    The `requirements.txt` has been updated, the `.devcontainer` folder added to the repository, and minor bug fixes and changes applied to the original code.  
+
 
 <br>  
 
@@ -105,11 +109,17 @@
 
 * **Chapter 9**  
 
-  * Application 1, Building a chat bot with FastAPI (locally, off notebook)
+  * Web Application, Build a chatbot with `FastAPI`, `WebSocket`, and `Claude APIs` (locally, off notebook)  
+
+    * In `VS Code`: Press `F1` -> Choose `Dev Containers: Rebuild Container` 
+    * Menu: `Terminal` -> `New Terminal` (Make sure it is `bash - generative_ai_with_langchain`.) 
     ```python
     ## Launch the app
     $ python -m chapter9.fastapi.main
     ```
+    * Open http://localhost:8000/ in the browser.
+
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-18%2015_52_12-Chatbot%20Playground_chapter9.jpg" width=800>
 
 <br>  
 
