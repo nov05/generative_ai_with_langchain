@@ -3,6 +3,7 @@
 import asyncio
 import logging
 import json
+import uvicorn
 from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -10,13 +11,16 @@ from fastapi.responses import HTMLResponse
 from langchain.callbacks import AsyncIteratorCallbackHandler
 from langchain_anthropic import ChatAnthropic
 from langchain_core.messages import HumanMessage
-import uvicorn
 # Local imports
 from config import set_environment
+
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 set_environment()
+
+# Nov05: "claude-3-sonnet-20240229" is no longer available.
+MODEL = 'claude-3-opus-20240229'
 
 # Initialize FastAPI app
 app = FastAPI()
@@ -28,7 +32,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Initialize a non-streaming LLM for the regular API endpoints
 regular_llm = ChatAnthropic(
     # model="claude-3-sonnet-20240229",
-    model='claude-3-opus-20240229',
+    model=MODEL,
     temperature=0,
 )
 
@@ -101,7 +105,7 @@ async def websocket_endpoint(websocket: WebSocket):
             # Create a streaming model instance with the callback handler for this specific request
             streaming_llm = ChatAnthropic(
                 # model="claude-3-sonnet-20240229",
-                model='claude-3-opus-20240229',
+                model=MODEL,
                 temperature=0,
                 callbacks=[callback_handler],
                 streaming=True

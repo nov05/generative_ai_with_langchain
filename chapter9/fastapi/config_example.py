@@ -1,3 +1,7 @@
+"""
+    Copy this file to "config.py".
+    Add your API key(s).
+"""
 import os
 
 

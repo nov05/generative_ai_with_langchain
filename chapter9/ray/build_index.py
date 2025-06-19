@@ -1,30 +1,36 @@
 """Build and save FAISS index from Ray documentation (run once)"""
 
-import os
 import gc
-import ray
-import numpy as np
-from langchain_community.document_loaders import RecursiveUrlLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_community.document_loaders import RecursiveUrlLoader
+import numpy as np
+import os
 
-
-# nov05: for dev container
-os.environ["RAY_memory_usage_threshold"] = "0.95"
-os.environ["RAY_DEDUP_LOGS"] = "0"
-# NUM_WORKERS = 1  # 4
+# Nov05: For limited memory environment
 NUM_CPUS_INIT = 1
 NUM_CPUS_PREPROCESS = 0.25
 NUM_CPUS_EMBED = 1
+NUM_WORKERS = 4
+MINI_BATCH_SIZE = int(1e4)
+
+
+# Nov05: For limited memory environment
+def init_ray_env(num_cpus=NUM_CPUS_INIT):
+    os.environ["RAY_memory_usage_threshold"] = "0.95"
+    os.environ["RAY_DEDUP_LOGS"] = "0"
+    import ray
+    ray.init(num_cpus=num_cpus)
+    return ray
+
 
 # Initialize Ray
-# ray.init()
-ray.init(num_cpus=NUM_CPUS_INIT)  # nov05: for dev container
-
+# ray.init()          # nov05
+ray = init_ray_env()  # nov05
 # Initialize the embedding model
-# https://huggingface.co/sentence-transformers/all-mpnet-base-v2
 embeddings = HuggingFaceEmbeddings(
+    # https://huggingface.co/sentence-transformers/all-mpnet-base-v2
     model_name="sentence-transformers/all-mpnet-base-v2"
 )
 
@@ -85,15 +91,21 @@ def build_index(base_url="https://docs.ray.io/en/master/", batch_size=50):
     gc.collect()
 
     # Split chunks for parallel embedding
-    # chunk_batches = np.array_split(all_chunks, NUM_WORKERS)  # nov05
-    chunk_size = 1000                                          # nov05
-    chunk_batches = [all_chunks[i:i+chunk_size]
-                     for i in range(0, len(all_chunks), chunk_size)]  # nov05
-    # Embed in parallel
+    chunk_batches = np.array_split(all_chunks, NUM_WORKERS)
+    # Embed in parallel, changed by Nov05
     print("Starting parallel embedding...")
-    index_futures = [embed_chunks.remote(batch) for batch in chunk_batches]
+    index_futures = []
+    for chunk_batch in chunk_batches:
+        if MINI_BATCH_SIZE and len(chunk_batch) > MINI_BATCH_SIZE:
+            # split to mini batches
+            mini_batches = [
+                chunk_batch[i:i+MINI_BATCH_SIZE] for i in range(0, len(chunk_batch), MINI_BATCH_SIZE)]
+        else:  # no split if MINI_BATCH_SIZE is None, 0, False, or large
+            mini_batches = [chunk_batch]
+        index_futures.extend(
+            [embed_chunks.remote(mini_batch) for mini_batch in mini_batches])
     indices = ray.get(index_futures)
-    # Added by nov05
+    # Added by Nov05
     del index_futures
     gc.collect()
 
@@ -112,6 +124,7 @@ def build_index(base_url="https://docs.ray.io/en/master/", batch_size=50):
 
 
 if __name__ == "__main__":
+
     # You can customize which part of the documentation to index
     # For faster testing, use a smaller section:
     # index = build_index("https://docs.ray.io/en/master/ray-core/")
