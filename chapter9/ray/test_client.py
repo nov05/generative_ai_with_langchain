@@ -1,4 +1,4 @@
-"""Test client for Ray Serve search deployment."""
+"""Test client for Ray Serve search deployment"""
 
 import requests
 import json

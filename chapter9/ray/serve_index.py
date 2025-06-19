@@ -1,4 +1,6 @@
-"""Ray Server with pre-built FAISS index."""
+"""Ray Server with pre-built FAISS index
+   Loads the index and serves the search API (runs continuously)
+"""
 
 import ray
 from ray import serve
@@ -115,8 +117,8 @@ if __name__ == "__main__":
         deployment = SearchDeployment.bind()
         serve.run(deployment)
         print("\n" + "=" * 60)
-        print("Service started successfully!")
-        print("=" * 60)
+        print("🟢 Service started successfully!")
+        print("-" * 60)
         print("Service URL: http://localhost:8000/")
         print(
             "Example query: http://localhost:8000/?query=How%20can%20Ray%20help%20with%20deploying%20LLMs%3F"

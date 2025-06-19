@@ -21,7 +21,7 @@
   * Web application 1, **Build a chatbot** with `FastAPI`, `WebSocket`, and `Claude APIs` (model="claude-3-opus-20240229")  
 
     * Prerequisites: You have `Docker Desktop` and `WSL2` installed, and Docker set to use Linux containers.  
-    * Create `config.py` in the `<repo>/chapter9/fastapi` directory.  
+    * Create `config.py` in the `<repo>/chapter9/fastapi` directory (refer to `config_example.py`).  
     * In `VS Code`: Press `F1` -> Choose `Dev Containers: Rebuild Container` (It takes about 15 minutes to build.)
     * Menu: `Terminal` -> `New Terminal` (Make sure it is `bash - generative_ai_with_langchain`.) 
       ```python

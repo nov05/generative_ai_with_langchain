@@ -134,7 +134,6 @@ async def websocket_endpoint(websocket: WebSocket):
                 "sender": "bot",
                 "message_type": "end"
             })
-
     except WebSocketDisconnect:
         logger.info("Client disconnected")
     except Exception as e:
