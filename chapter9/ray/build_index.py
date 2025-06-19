@@ -41,6 +41,7 @@ def preprocess_documents(docs):
     """
         Split documents into manageable chunks
         The @ray.remote decorator makes these functions run in separate Ray workers.
+        E.g. Chunk size 500, overlap 50, the Ray documents will be split to 293040 Chunks.
     """
     print(f"Preprocessing batch of {len(docs)} documents")
     text_splitter = RecursiveCharacterTextSplitter(

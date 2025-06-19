@@ -19,6 +19,7 @@
 * **Chapter 9** (locally, off notebook) 
 
   * Web application 1, **Build a chatbot** with `FastAPI`, `WebSocket`, and `Claude APIs` (model="claude-3-opus-20240229")  
+    [<img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/icons/youtube_red_2000x2000.png" width=20> Watch the demo video](https://youtu.be/HtXdJ5J0DLY)  
 
     * Prerequisites: You have `Docker Desktop` and `WSL2` installed, and Docker set to use Linux containers.  
     * Create `config.py` in the `<repo>/chapter9/fastapi` directory (refer to `config_example.py`).  
