@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 set_environment()
 
 # Nov05: "claude-3-sonnet-20240229" is no longer available.
-MODEL = 'claude-3-opus-20240229'
+MODEL = "claude-3-opus-20240229"
 
 # Initialize FastAPI app
 app = FastAPI()
