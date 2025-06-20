@@ -18,7 +18,7 @@ wheels/
 .ruff_cache
 .mypy_cache.
 search_engine/faiss_index.db/
-chapter9/ray/faiss_index/
+faiss_index/
 
 # IDEs
 .idea

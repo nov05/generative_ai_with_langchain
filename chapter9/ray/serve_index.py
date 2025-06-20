@@ -1,5 +1,6 @@
-"""Ray Server with pre-built FAISS index
-   Loads the index and serves the search API (runs continuously)
+"""
+    Ray Server with pre-built FAISS index
+    Loads the index and serves the search API (runs continuously)
 """
 
 import ray

@@ -1,42 +1,48 @@
-"""Build and save FAISS index from Ray documentation (run once)"""
+"""
+    Build and save FAISS index from Ray documentation (run once)
+"""
 
 import gc
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import RecursiveUrlLoader
-import numpy as np
 import os
+import pickle
+
 
 # Nov05: For limited memory environment, e.g. VS Code Dev Container
-NUM_CPUS_INIT = 1
-NUM_CPUS_PREPROCESS = 0.25
-NUM_CPUS_EMBED = 1
-NUM_WORKERS = 4
-MINI_BATCH_SIZE = int(1e4)
+MODEL_NAME = "all-MiniLM-L6-v2"  # For GPU with small memory
+INIT_NUM_CPUS = 1
+INIT_NUM_GPUS = 1
+PREPROCESS_BATCH_SIZE = 20  # Preprocessing batch size
+PREPROCESS_NUM_CPUS = 0.25
+EMBED_BATCH_SIZE = int(1e4)  # Embedding chunk batch size
+EMBED_NUM_CPUS = None
+EMBED_NUM_GPUS = 1
 
 
 # Nov05: For limited memory environment
-def init_ray_env(num_cpus=NUM_CPUS_INIT):
+def init_ray_env():
+    # Set before import
     os.environ["RAY_memory_usage_threshold"] = "0.95"
     os.environ["RAY_DEDUP_LOGS"] = "0"
     import ray
-    ray.init(num_cpus=num_cpus)
+    # https://docs.ray.io/en/latest/ray-core/api/doc/ray.init.html
+    ray.init(
+        num_cpus=INIT_NUM_CPUS,
+        num_gpus=INIT_NUM_GPUS,
+    )
     return ray
 
 
 # Initialize Ray
-# ray.init()          # nov05
-ray = init_ray_env()  # nov05
-# Initialize the embedding model
-embeddings = HuggingFaceEmbeddings(
-    # https://huggingface.co/sentence-transformers/all-mpnet-base-v2
-    model_name="sentence-transformers/all-mpnet-base-v2"
-)
+# ray.init()          # Nov05
+ray = init_ray_env()  # Nov05
 
 
 # Create a function to preprocess documents in parallel
-@ray.remote(num_cpus=NUM_CPUS_PREPROCESS)
+@ray.remote(num_cpus=PREPROCESS_NUM_CPUS)
 def preprocess_documents(docs):
     """
         Split documents into manageable chunks
@@ -54,87 +60,135 @@ def preprocess_documents(docs):
 
 
 # Create a function to embed chunks in parallel
-@ray.remote(num_cpus=NUM_CPUS_EMBED)
-def embed_chunks(chunks):
+@ray.remote(num_cpus=EMBED_NUM_CPUS, num_gpus=EMBED_NUM_GPUS)
+def embed_chunks(chunks, embedder):
     """
         Convert text chunks into vector embeddings and builds FAISS indices
         The @ray.remote decorator makes these functions run in separate Ray workers.
     """
     print(f"Embedding batch of {len(chunks)} chunks...")
-    embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-mpnet-base-v2",
-        model_kwargs={"device": "cuda"}  # nov05: GPU
-    )
-    return FAISS.from_documents(chunks, embeddings)
+    # Initialize inside every worker. Each worker loads the full model into GPU memory.
+    # It might cause crashes due to Out-Of-Memory or double-free in CUDA contexts.
+    # https://huggingface.co/sentence-transformers/all-mpnet-base-v2
+    return FAISS.from_documents(chunks, embedder)
 
 
-def build_index(base_url="https://docs.ray.io/en/master/", batch_size=50):
+def build_index(
+    base_url="https://docs.ray.io/en/master/",
+    index_dir="faiss_index",
+    checkpoint_dir="cache",
+    embedder=None,
+):
     # Create index directory if it doesn't exist
-    os.makedirs("faiss_index", exist_ok=True)
+    os.makedirs(index_dir, exist_ok=True)
+    os.makedirs(checkpoint_dir, exist_ok=True)
 
-    # Choose a more specific section for faster processing
-    # You can adjust this URL to include more or less content
-    print(f"Loading documentation from {base_url}...")
-    loader = RecursiveUrlLoader(base_url)
-    docs = loader.load()
-    print(f"🟢 Loaded {len(docs)} documents")
+    # Check for cached chunks first
+    chunks_file = os.path.join(checkpoint_dir, "chunks.pkl")
+    if os.path.exists(chunks_file):
+        print("Loading cached chunks...")
+        with open(chunks_file, 'rb') as f:
+            chunks = pickle.load(f)
+        print(f"🟢 Loaded {len(chunks)} cached chunks")
+    else:
+        # -----------------------------------------------------------
+        # Load documents
+        # -----------------------------------------------------------
+        # Choose a more specific section for faster processing
+        # You can adjust this URL to include more or less content
+        print(f"Loading documentation from {base_url}...")
+        loader = RecursiveUrlLoader(base_url)
+        docs = loader.load()
+        print(f"🟢 Loaded {len(docs)} documents")
 
-    # Preprocess in parallel with smaller batches
-    chunks_futures = []
-    for i in range(0, len(docs), batch_size):
-        batch = docs[i: i + batch_size]
-        chunks_futures.append(preprocess_documents.remote(batch))
+        # -----------------------------------------------------------
+        # Preprocess documents
+        # -----------------------------------------------------------
+        # Preprocess in parallel in batches
+        chunk_futures = []
+        for i in range(0, len(docs), PREPROCESS_BATCH_SIZE):
+            batch = docs[i: i+PREPROCESS_BATCH_SIZE]
+            chunk_futures.append(preprocess_documents.remote(batch))
+        print("Waiting for preprocessing to complete...")
+        chunks = []
+        for future in ray.get(chunk_futures):
+            chunks.extend(future)
+        print(f"👉 Total chunks: {len(chunks)}")
+        del docs, chunk_futures
+        gc.collect()
+        # Save chunks for future use
+        print("Saving chunks in cache...")
+        with open(chunks_file, 'wb') as f:
+            pickle.dump(chunks, f)
+        print("🟢 Chunks saved in cache")
 
-    print("Waiting for preprocessing to complete...")
-    all_chunks = []
-    for chunks in ray.get(chunks_futures):
-        all_chunks.extend(chunks)
-    print(f"👉 Total chunks: {len(all_chunks)}")
-    del docs, chunks_futures
-    gc.collect()
+    # Check if FAISS index already exists
+    index_file = os.path.join(index_dir, "index.faiss")
+    if os.path.exists(index_file):
+        print(f"Loading existing FAISS index from '{index_dir}'...")
+        embeddings = HuggingFaceEmbeddings(
+            model_name=MODEL_NAME,
+            model_kwargs={"device": "cuda"}  # GPU
+        )
+        index = FAISS.load_local(
+            index_dir,
+            embeddings,
+            allow_dangerous_deserialization=True
+        )
+        print(f"🟢 Loaded existing index with {index.index.ntotal} vectors")
+        return index
+    print("No existing index found")
 
-    # Split chunks for parallel embedding
-    chunk_batches = np.array_split(all_chunks, NUM_WORKERS)
-    # Embed in parallel, changed by Nov05
-    print("Starting parallel embedding...")
+    # -----------------------------------------------------------
+    # Embed document chunks in parallel
+    # -----------------------------------------------------------
+    # Create chunk batches for parallel embedding
     index_futures = []
-    for chunk_batch in chunk_batches:
-        if MINI_BATCH_SIZE and len(chunk_batch) > MINI_BATCH_SIZE:
-            # split to mini batches
-            mini_batches = [
-                chunk_batch[i:i+MINI_BATCH_SIZE] for i in range(0, len(chunk_batch), MINI_BATCH_SIZE)]
-        else:  # no split if MINI_BATCH_SIZE is None, 0, False, or large
-            mini_batches = [chunk_batch]
-        index_futures.extend(
-            [embed_chunks.remote(mini_batch) for mini_batch in mini_batches])
-    indices = ray.get(index_futures)
-    # Added by Nov05
-    del index_futures
+    for i in range(0, len(chunks), EMBED_BATCH_SIZE):
+        batch = chunks[i: i+EMBED_BATCH_SIZE]
+        index_futures.append(embed_chunks.remote(batch, embedder))
+    # Get results with progress tracking
+    indices = []
+    for i, future in enumerate(index_futures):
+        indices.append(ray.get(future))
+        print(f"🟢 Completed {i+1}/{len(index_futures)} embedding batches")
+    del chunks, index_futures
     gc.collect()
-
     # Merge indices
     print("Merging indices...")
     index = indices[0]
     for idx in indices[1:]:
         index.merge_from(idx)
+    del indices
+    gc.collect()
 
+    # -----------------------------------------------------------
     # Save the index
+    # -----------------------------------------------------------
     print("Saving index...")
-    index.save_local("faiss_index")
-    print("🟢 Index saved to 'faiss_index' directory")
-
+    index.save_local(index_dir)
+    print(f"🟢 Index saved to directory {index_dir}")
     return index
 
 
 if __name__ == "__main__":
 
+    # Initialize the embedding model
+    embedder = HuggingFaceEmbeddings(
+        # https://huggingface.co/sentence-transformers/all-mpnet-base-v2
+        # model_name="sentence-transformers/all-mpnet-base-v2",
+        model_name=MODEL_NAME,           # Nov05: use a smaller model
+        model_kwargs={"device": "cuda"}  # Nov05: GPU
+    )
     # You can customize which part of the documentation to index
     # For faster testing, use a smaller section:
-    # index = build_index("https://docs.ray.io/en/master/ray-core/")
-
+    # index = build_index(base_url="https://docs.ray.io/en/master/ray-core/")
     # For complete documentation:
-    # Nov05: Reduce batch_size for dev container
-    index = build_index(batch_size=20)
+    # index = build_index()
+    index = build_index(
+        base_url="https://docs.ray.io/en/master/ray-core/",
+        embedder=embedder,
+    )
 
     # Test the index
     print("Testing the index...")
