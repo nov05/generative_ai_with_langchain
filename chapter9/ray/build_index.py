@@ -8,7 +8,7 @@ from langchain_community.document_loaders import RecursiveUrlLoader
 import numpy as np
 import os
 
-# Nov05: For limited memory environment
+# Nov05: For limited memory environment, e.g. VS Code Dev Container
 NUM_CPUS_INIT = 1
 NUM_CPUS_PREPROCESS = 0.25
 NUM_CPUS_EMBED = 1
@@ -62,7 +62,9 @@ def embed_chunks(chunks):
     """
     print(f"Embedding batch of {len(chunks)} chunks...")
     embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-mpnet-base-v2")
+        model_name="sentence-transformers/all-mpnet-base-v2",
+        model_kwargs={"device": "cuda"}  # nov05: GPU
+    )
     return FAISS.from_documents(chunks, embeddings)
 
 

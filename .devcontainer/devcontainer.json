@@ -6,6 +6,8 @@
     "context": ".."
   },
   "runArgs": [
+    "--gpus=all", // for CUDA
+    "--memory=12g", // for Ray distributed computing
     "--shm-size=2g" // for Ray distributed computing
   ],
   "features": {

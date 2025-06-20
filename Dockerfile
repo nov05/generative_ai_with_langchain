@@ -12,7 +12,8 @@ COPY requirements.txt .
 RUN python -m pip install --upgrade pip && pip cache purge
 
 # This is to avoid getting the GPU torch version. Please remove the index option, if you have a GPU:
-RUN pip install torch>=1.11.0 --extra-index-url https://download.pytorch.org/whl/cpu
+# RUN pip install torch>=1.11.0 --extra-index-url https://download.pytorch.org/whl/cpu
+RUN pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
 
 # Avoid any hash conflicts and extra time compiling:
 RUN pip install --prefer-binary --no-cache-dir -r requirements.txt
