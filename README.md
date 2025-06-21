@@ -10,7 +10,7 @@
   * For Jupyter notebooks: `Google Colab` (free version)
   * For local applications: `Windows 11`, `VS Code` with `Dev Container`, `Docker Desktop`, `WSL2` (Ubuntu-22.04)  
   * Model related services: `LangSmith` APIs, `Google Cloud Platform` (GCP, with billing account, service account, VertexAI APIs), `OpenAI` APIs (with billing), `Anthropic` APIs (with billing), `Mistral AI` APIs, `Replicate` APIs (with [billing](https://replicate.com/account/billing)), `Stability AI` APIs (with [billing](https://platform.stability.ai/account/credits)), `HuggingFace` APIs   
-  
+
     [<img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/icons/youtube_red_2000x2000.png" width=20> Create Dev Container](https://youtu.be/HtXdJ5J0DLY?t=25)  
 
 <br>  
@@ -83,13 +83,15 @@
 
   * [Notebook 5, multi-model](https://github.com/nov05/Google-Colaboratory/blob/master/generative_ai_with_langchain/20250602_05_multimodal_(Image_generation_and_understanding).ipynb)  
 
-  E.g. Generate image from text prompt  
+    E.g. Generate image from text prompt  
 
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-04%2005_02_33-Settings.jpg" width=800>  
+    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-04%2005_02_33-Settings.jpg" width=800>  
+
+    <br>  
 
     E.g. Describe a video in text    
 
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-04%2005_03_15-Settings.jpg" width=800>  
+    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-04%2005_03_15-Settings.jpg" width=800>  
 
 <br>  
 
@@ -101,14 +103,13 @@
 
     * E.g. Process a 10-minute video and generate a summary       
 
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-05%2001_07_35-20250604_map_reduce.ipynb%20-%20Colab.jpg" width=800>   
+      <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-05%2001_07_35-20250604_map_reduce.ipynb%20-%20Colab.jpg" width=800>   
 
   <br>  
 
   * [Notebook 8](https://drive.google.com/file/d/1kDf2t02MfRPa89kMOtw73-uxqWDqBd8F), using `LangSmith` tracing to log model performance 
 
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-13%2006_11_56-generative_ai_with_langchain%20-%20LangSmith.jpg" width=800> 
-
+    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-13%2006_11_56-generative_ai_with_langchain%20-%20LangSmith.jpg" width=800> 
 
 <br>  
 
@@ -124,9 +125,9 @@
 
   * [Notebook 5, ReAct examples](https://drive.google.com/file/d/1fljLPYufX-8DUDwXVUdtiS3JTIxcbmgE)     
 
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-10%2012_35_24-05_react_example.ipynb%20-%20Colab.jpg" width=800>
+    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-10%2012_35_24-05_react_example.ipynb%20-%20Colab.jpg" width=800>
  
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-11%2001_23_40-05_react_example.ipynb%20-%20Colab.jpg" width=800>   
+    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-11%2001_23_40-05_react_example.ipynb%20-%20Colab.jpg" width=800>   
 
 <br>  
 
@@ -134,13 +135,13 @@
 
   * [Notebook 1, Multi-agent system](https://drive.google.com/file/d/1vAYX1buFY0nq79MgbvdJxp3-WPBfmi2p), e.g. research and critique agents    
 
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-11%2013_51_33-01_Multiple-choice%20question-answering%20agent.ipynb%20-%20Colab.jpg" width = 800>    
+    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-11%2013_51_33-01_Multiple-choice%20question-answering%20agent.ipynb%20-%20Colab.jpg" width = 800>    
 
   <br>  
 
   * Notebook 4, **Tree-of-Thoughts (ToT)** example (naive, without Monte Carlo tree search) ([GitHub copy with nbviwer](https://nbviewer.org/github/nov05/Google-Colaboratory/blob/master/generative_ai_with_langchain/04_Tree_of_thoughts_%28ToT%29_agent.ipynb), [my post](https://www.linkedin.com/posts/wenjingliu7_langchain-treeofthoughts-llm-activity-7340456103966646273-zkJ6/))         
 
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-12%2013_07_49-04_Tree-of-thoughts%20(ToT)%20agent.ipynb%20-%20Colab.jpg" width=800>
+    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-12%2013_07_49-04_Tree-of-thoughts%20(ToT)%20agent.ipynb%20-%20Colab.jpg" width=800>
 
 
 <br>  
@@ -149,13 +150,13 @@
 
   * [Notebook 4, Build a RAG on a documentation website](https://github.com/nov05/Google-Colaboratory/blob/master/generative_ai_with_langchain/04_langchain_rag.ipynb)  
 
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-13%2017_15_16-04_langchain_rag.ipynb%20-%20Colab.jpg" width=800>   
+    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-13%2017_15_16-04_langchain_rag.ipynb%20-%20Colab.jpg" width=800>   
 
   <br>  
 
   * [Notebook 5, Data Science (agent for Pandas dataframe)](https://github.com/nov05/Google-Colaboratory/blob/master/generative_ai_with_langchain/07_05_data_science.ipynb)  
 
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-13%2018_40_45-07_05_data_science.ipynb%20-%20Colab.jpg" width=800>   
+    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-13%2018_40_45-07_05_data_science.ipynb%20-%20Colab.jpg" width=800>   
 
 <br>
 
@@ -163,15 +164,15 @@
 
   * [Notebook 2, advanced evaluation](https://nbviewer.org/github/nov05/Google-Colaboratory/blob/master/generative_ai_with_langchain/08_02_advanced_evaluation.ipynb)   
 
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-13%2022_42_52-chapter%208%20notebook%202%20langsmith%20eval%20trajectory.jpg" width=800>
+    <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-13%2022_42_52-chapter%208%20notebook%202%20langsmith%20eval%20trajectory.jpg" width=800>
 
   * [Notebook 3, `LangSmith` evaluation](https://nbviewer.org/github/nov05/Google-Colaboratory/blob/master/generative_ai_with_langchain/08_03_langsmith_evaluation.ipynb)  
 
-  Insurance claim text exaction example   
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-14%2002_59_42-08_03_insurance%20claim%20text%20extraction.jpg" width=800>   
+    * Insurance claim text exaction example   
+      <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-14%2002_59_42-08_03_insurance%20claim%20text%20extraction.jpg" width=800>   
 
-  Tracing with `LangSmith`   
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-14%2002_56_11-08_03_langsmith_eval_insurance_claim_text_extraction_.jpg" width=800>
+    * Tracing with `LangSmith`   
+      <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-14%2002_56_11-08_03_langsmith_eval_insurance_claim_text_extraction_.jpg" width=800>
 
 <br>    
 
@@ -199,8 +200,9 @@
 
 ### 👉 **Logs**  
 
-2025-06-02 Repo forked
-2025-06-16 All notebooks (Chapter 1-8) done
+2025-06-02 Repo forked  
+2025-06-16 All notebooks (Chapter 1-8) done  
+2025-06-21 All applications (Chapter 9) done  
 
 <br><br><br>  
 
