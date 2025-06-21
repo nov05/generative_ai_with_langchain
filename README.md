@@ -32,7 +32,7 @@
       ```
     * Open http://localhost:8000/ in the browser.
 
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-18%2015_52_12-Chatbot%20Playground_chapter9.jpg" width=800>
+      <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-18%2015_52_12-Chatbot%20Playground_chapter9.jpg" width=800>
 
   <br>  
 
@@ -44,10 +44,9 @@
       $ cd chapter9/ray
       $ python build_index.py
       ```
+      <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-20%2018_44_11-chapter9_ray_build_faiss_index.jpg" width=800>  
 
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-20%2018_44_11-chapter9_ray_build_faiss_index.jpg" width=800>  
-
-  <br>  
+    <br>  
 
     * Run `$ python serve_index.py` to deploy the app, or do it in bash.
       ```python
@@ -61,16 +60,21 @@
       http://localhost:8000/?query=How%20can%20Ray%20help%20with%20deploying%20LLMs%3F  
       http://localhost:8000/search?query=How%20can%20Ray%20help%20with%20deploying%20LLMs%3F&n_results=3   
 
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-21%2000_46_40-localhost_8000_search_query%3DHow%20can%20Ray%20help%20with%20deploying%20LLMs%253F%26n_results%3D3.jpg" width=800>  
+      <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-21%2000_46_40-localhost_8000_search_query%3DHow%20can%20Ray%20help%20with%20deploying%20LLMs%253F%26n_results%3D3.jpg" width=800>  
 
-  <br>  
+    <br>  
 
     * Check the Ray Serve dashboard at http://localhost:8265
 
-  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-21%2000_50_06-ray%20serve%20dashboard.jpg" width=800>  
-
+      <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-21%2000_50_06-ray%20serve%20dashboard.jpg" width=800>  
+ 
   <br>  
-    
+
+  * Observability tools 
+  
+    * [Prompt tracking with `promptwatch`](https://github.com/nov05/generative_ai_with_langchain/blob/second_edition/chapter9/tools/prompt_tracking.py)   
+    * [Trace and assess with `LangChain` ReAct agent](https://github.com/nov05/generative_ai_with_langchain/blob/second_edition/chapter9/tools/tracing.py)  
+
 <br>
 
 * **Chapter 2** 
@@ -102,12 +106,6 @@
   * [Notebook 8](https://drive.google.com/file/d/1kDf2t02MfRPa89kMOtw73-uxqWDqBd8F), using `LangSmith` tracing to log model performance 
 
   <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-13%2006_11_56-generative_ai_with_langchain%20-%20LangSmith.jpg" width=800> 
-
-  <br>  
-
-  * Tools
-    * [Prompt tracking with `promptwatch`](https://github.com/nov05/generative_ai_with_langchain/blob/second_edition/chapter9/tools/prompt_tracking.py)   
-    * [Trace and assess with `LangChain` ReAct agent](https://github.com/nov05/generative_ai_with_langchain/blob/second_edition/chapter9/tools/tracing.py)  
 
 
 <br>  
