@@ -1,14 +1,16 @@
 
+### 👉 **"Generative AI with LangChain" hands-on**
+
 * [General notes](https://docs.google.com/document/d/1weC8RowQGk59pVyfBUwmcf3lb6yDYPqw2Hc6QxkNKuM)   
-* [**Colab notebooks**](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN) (Chapter 2-8, notebooks in Colab) ✅  
+* [**Colab notebooks**](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN) (Chapter 2-8, **39 Jupyter notebooks** in Colab) ✅  
   * Note:   
     Numerous small updates — including API adjustments, bug fixes, added comments and notes, and formatting improvements—have been made to the original Jupyter notebooks to enhance clarity and ensure reproducibility, especially when running them in `Google Colab`.  
-* [**Applications**](https://github.com/nov05/generative_ai_with_langchain/tree/second_edition/chapter9) (Chapter 9, run locally) ✅   
+* [**Applications**](https://github.com/nov05/generative_ai_with_langchain/tree/second_edition/chapter9) (Chapter 9, **2 applications**, running locally) ✅   
   * Note:  
-    The `requirements.txt` has been updated, [the `.devcontainer` folder](https://github.com/nov05/generative_ai_with_langchain/tree/second_edition/.devcontainer) added to the repository, and minor bug fixes and changes applied to the original code.  
+    The [`requirements.txt`](https://github.com/nov05/generative_ai_with_langchain/blob/second_edition/requirements.txt) and [`Dockerfile`](https://github.com/nov05/generative_ai_with_langchain/blob/second_edition/Dockerfile) have been updated, [the `.devcontainer` folder](https://github.com/nov05/generative_ai_with_langchain/tree/second_edition/.devcontainer) added to the repository, and minor bug fixes and changes applied to the original code.  
 * Environments:
   * For Jupyter notebooks: `Google Colab` (free version)
-  * For local applications: `Windows 11`, `VS Code` with `Dev Container`, `Docker Desktop`, `WSL2` (Ubuntu-22.04)  
+  * For local applications: `Windows 11`, `VS Code` with `Dev Container` (`CUDA` enabled, `Nvidia` GPU), `Docker Desktop`, `WSL2` (Ubuntu-22.04)  
   * Model related services: `LangSmith` APIs, `Google Cloud Platform` (GCP, with billing account, service account, VertexAI APIs), `OpenAI` APIs (with billing), `Anthropic` APIs (with billing), `Mistral AI` APIs, `Replicate` APIs (with [billing](https://replicate.com/account/billing)), `Stability AI` APIs (with [billing](https://platform.stability.ai/account/credits)), `HuggingFace` APIs   
 
     [<img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/icons/youtube_red_2000x2000.png" width=20> Create Dev Container](https://youtu.be/HtXdJ5J0DLY?t=25)  
