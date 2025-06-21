@@ -33,3 +33,4 @@ ray[default]==2.43.0
 rank_bm25==0.2.2
 langchain_mistralai==0.2.8
 wikipedia==1.4.0
+promptwatch==0.4.5

@@ -9,18 +9,18 @@ You can run this from the terminal in the search_engine directory like this:
 > PYTHONPATH=../ python serve_vector_store.py
 """
 import time
-
 import requests
-from chapter9.fastapi.config import set_environment
 from fastapi import FastAPI
 from langchain_community.vectorstores import FAISS
 from ray import serve
+# Local imports
+# from search_engine.utils import INDEX_PATH, get_embeddings
+from utils import INDEX_PATH, get_embeddings
+from config import set_environment
 
-from search_engine.utils import INDEX_PATH, get_embeddings
 
 # set keys:
 set_environment()
-
 app = FastAPI()
 
 

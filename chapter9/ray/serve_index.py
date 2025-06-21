@@ -2,6 +2,7 @@
     Ray Server with pre-built FAISS index
     Loads the index and serves the search API (runs continuously)
 """
+# Refactored by Nov05 on 2025-06-20
 # Nov05: You can "$ python serve_index.py" to run the app.
 #        Or you can run the following commands in bash to deploy the app.
 # $ ray stop --force
@@ -13,6 +14,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from ray import serve
 import time
+
 
 # MODEL_NAME = "sentence-transformers/all-mpnet-base-v2"
 # https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2

@@ -53,7 +53,6 @@ The observability examples demonstrate how to implement monitoring for LLM appli
 ```bash
 # For prompt tracking
 python prompt_tracking.py
-
 # For agent tracing
 python tracing.py
 ```

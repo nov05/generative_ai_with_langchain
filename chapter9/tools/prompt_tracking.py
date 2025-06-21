@@ -1,10 +1,13 @@
 """Prompt tracking with PromptWatch.io."""
+
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
+# https://pypi.org/project/promptwatch/
 from promptwatch import PromptWatch
+# Local imports
+from config import set_environment
 
-from chapter9.fastapi.config import set_environment
 
 set_environment()
 
@@ -19,4 +22,3 @@ with PromptWatch() as pw:
     print(f"Result: {result}")
 
 print("Check PromptWatch.io dashboard for detailed trace information")
-
