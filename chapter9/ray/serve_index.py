@@ -23,7 +23,7 @@ INIT_NUM_GPUS = None
 
 # Initialize Ray
 # ray.init()
-# Define our FastAPI app
+# Define FastAPI app (optional)
 app = FastAPI()
 
 
@@ -116,7 +116,7 @@ Please rebuild the index by running:
             }
 
 
-# For testing the deployment locally
+# Optional: Add an API endpoint
 @app.get("/search")
 async def search(query: str = ""):
     handle = serve.get_deployment_handle("SearchDeployment")
@@ -141,9 +141,9 @@ if __name__ == "__main__":
         print("-" * 60)
         print("Service URL: http://localhost:8000/")
         print(
-            "Example query:\n"
-            "http://localhost:8000/?query=How%20can%20Ray%20help%20with%20deploying%20LLMs%3F\n"
-            "http://localhost:8000/search?query=How%20can%20Ray%20help%20with%20deploying%20LLMs%3F&n_results=3"
+            "👉 Example query:\n"
+            "    http://localhost:8000/?query=How%20can%20Ray%20help%20with%20deploying%20LLMs%3F\n"
+            "    http://localhost:8000/search?query=How%20can%20Ray%20help%20with%20deploying%20LLMs%3F&n_results=3"
 
         )
         print("=" * 60 + "\n")
