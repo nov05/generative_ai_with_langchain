@@ -2,8 +2,8 @@
     Ray Server with pre-built FAISS index
     Loads the index and serves the search API (runs continuously)
 """
-# Nov05: You can $ python serve_index.py to run the app.
-#        Or you can run the following command in bash to deploy the app.
+# Nov05: You can "$ python serve_index.py" to run the app.
+#        Or you can run the following commands in bash to deploy the app.
 # $ ray stop --force
 # $ ray start --head
 # $ serve deploy serve_index.yaml
