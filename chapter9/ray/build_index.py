@@ -9,10 +9,13 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import RecursiveUrlLoader
 import os
 import pickle
+# Local imports
+from utils import clean_html_content
 
 
 # Nov05: For limited memory environment, e.g. VS Code Dev Container
-MODEL_NAME = "all-MiniLM-L6-v2"  # For GPU with small memory
+# https://huggingface.co/sentence-transformers/all-mpnet-base-v2
+MODEL_NAME = "all-MiniLM-L6-v2"  # For GPU with small memory, e.g. 4GB
 INIT_NUM_CPUS = 1
 INIT_NUM_GPUS = 1
 PREPROCESS_BATCH_SIZE = 20  # Preprocessing batch size
@@ -66,10 +69,9 @@ def embed_chunks(chunks, embedder):
         Convert text chunks into vector embeddings and builds FAISS indices
         The @ray.remote decorator makes these functions run in separate Ray workers.
     """
-    print(f"Embedding batch of {len(chunks)} chunks...")
-    # Initialize inside every worker. Each worker loads the full model into GPU memory.
+    # If initialize embedder inside every worker. Each worker loads the full model into GPU memory.
     # It might cause crashes due to Out-Of-Memory or double-free in CUDA contexts.
-    # https://huggingface.co/sentence-transformers/all-mpnet-base-v2
+    print(f"Embedding batch of {len(chunks)} chunks...")
     return FAISS.from_documents(chunks, embedder)
 
 
@@ -177,7 +179,7 @@ if __name__ == "__main__":
     embedder = HuggingFaceEmbeddings(
         # https://huggingface.co/sentence-transformers/all-mpnet-base-v2
         # model_name="sentence-transformers/all-mpnet-base-v2",
-        model_name=MODEL_NAME,           # Nov05: use a smaller model
+        model_name=MODEL_NAME,           # Nov05: Use a smaller model
         model_kwargs={"device": "cuda"}  # Nov05: GPU
     )
     # You can customize which part of the documentation to index
@@ -186,17 +188,25 @@ if __name__ == "__main__":
     # For complete documentation:
     # index = build_index()
     index = build_index(
-        base_url="https://docs.ray.io/en/master/ray-core/",
+        # base_url="https://docs.ray.io/en/master/ray-core/",
         embedder=embedder,
     )
 
     # Test the index
     print("Testing the index...")
-    results = index.similarity_search(
-        "How can Ray help with deploying LLMs?", k=3)
-    for i, doc in enumerate(results):
+    docs = index.similarity_search(
+        "How can Ray help with deploying LLMs?",
+        k=3,
+    )
+    print("🟢 Test results:\n")
+    for i, doc in enumerate(docs):
+        # Clean the content for readable display
+        clean_content = clean_html_content(
+            doc.page_content,
+            max_length=150,
+        )
         print(
-            f"Result {i + 1}:\n"
+            f"Result {i+1}:\n"
             f"Source: {doc.metadata.get('source', 'Unknown')}\n"
-            f"Content: {doc.page_content[:150]}...\n"
+            f"Content: {clean_content[:150]}...\n"
         )
