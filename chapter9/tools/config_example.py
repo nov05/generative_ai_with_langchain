@@ -1,3 +1,4 @@
+# Nov05: Copy this to config.py
 import os
 
 

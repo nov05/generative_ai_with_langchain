@@ -30,3 +30,16 @@ with PromptWatch() as pw:
     print(f"👉 Result: {result}")
 
 print("Check PromptWatch.io dashboard for detailed trace information")
+
+
+# Nov05: Example output (Ignore the error messages from LangChain caused by PromptWatch)
+'''
+root ➜ /workspaces/generative_ai_with_langchain/chapter9/tools (second_edition) $ python prompt_tracking.py
+promptwatch version: 0.4.5
+Error in LangChainCallbackHandler.on_chain_start callback: AttributeError("'NoneType' object has no attribute 'get'")
+Error in LangChainCallbackHandler.on_chain_start callback: AttributeError("'NoneType' object has no attribute 'get'")
+Error in LangChainCallbackHandler.on_chain_end callback: AttributeError("'NoneType' object has no attribute 'outputs'")
+Error in LangChainCallbackHandler.on_chain_end callback: AttributeError("'NoneType' object has no attribute 'outputs'")
+👉 Result:  the lazy dog.
+Check PromptWatch.io dashboard for detailed trace information
+'''
