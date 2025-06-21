@@ -4,8 +4,8 @@
 import subprocess
 from urllib.parse import urlparse
 # from langchain.agents import AgentType, initialize_agent
-# from langchain_core.tools import StructuredTool
 from langgraph.prebuilt import create_react_agent
+# from langchain_core.tools import StructuredTool
 from langchain_core.tools import tool
 from langchain_openai.chat_models import ChatOpenAI
 from pydantic import HttpUrl
@@ -27,6 +27,7 @@ def ping(url: HttpUrl, return_error: bool) -> str:
     return output
 
 
+# Nov05: Check the ping command in bash: "$ which ping"
 # alternatively annotate the ping() function with @tool
 # ping_tool = StructuredTool.from_function(ping)
 llm = ChatOpenAI(
@@ -43,9 +44,11 @@ agent = create_react_agent(llm, tools=[ping])
 # result = agent("What's the latency like for https://langchain.com?")
 # print(result)
 query = "What's the latency like for `https://langchain.com`?"
+# Invoke the agent
 print("\n👉 Stream agent responses:")
 for event in agent.stream({"messages": [("user", query)]}, stream_mode="values"):
     event["messages"][-1].pretty_print()
+# Invoke again
 result = agent.invoke({"messages": [("user", query)]})
 print("\n👉 Result:")
 print(result)
@@ -66,8 +69,8 @@ root ➜ /workspaces/generative_ai_with_langchain/chapter9/tools (second_edition
 What's the latency like for `https://langchain.com`?
 ================================== Ai Message ==================================
 Tool Calls:
-  ping (call_JNa2YS7sJY9aU0Jt5JQPezZE)
- Call ID: call_JNa2YS7sJY9aU0Jt5JQPezZE
+  ping (call_K0sKfDRZq6nkPN5avje0xcVf)
+ Call ID: call_K0sKfDRZq6nkPN5avje0xcVf
   Args:
     url: https://langchain.com
     return_error: True
@@ -75,11 +78,15 @@ Tool Calls:
 Name: ping
 
 PING langchain.com (99.83.190.102) 56(84) bytes of data.
-64 bytes from 99.83.190.102 (99.83.190.102): icmp_seq=1 ttl=63 time=63.2 ms
+64 bytes from 99.83.190.102 (99.83.190.102): icmp_seq=1 ttl=63 time=73.6 ms
 
 --- langchain.com ping statistics ---
 1 packets transmitted, 1 received, 0% packet loss, time 0ms
-rtt min/avg/max/mdev = 63.221/63.221/63.221/0.000 ms
+rtt min/avg/max/mdev = 73.568/73.568/73.568/0.000 ms
+
+================================== Ai Message ==================================
+
+The latency for `https://langchain.com` is approximately 73.6 ms.
 
 ================================== Ai Message ==================================
 
