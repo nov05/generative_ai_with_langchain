@@ -16,7 +16,7 @@
 ### 👉 **Highlights**
 
 
-* **Chapter 9** (locally, off notebook) 
+* **Chapter 9** (locally, off notebook, in VS Code Dev Container) 
 
   * Web application 1, **Build a chatbot** with `FastAPI`, `WebSocket`, and `Claude APIs` (model="claude-3-opus-20240229")  
     [<img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/icons/youtube_red_2000x2000.png" width=20> Watch the demo video](https://youtu.be/HtXdJ5J0DLY)  
@@ -36,8 +36,41 @@
 
   <br>  
 
-  * Web application 2, **Build a search tool** with `FAISS` (vectore store for RAG), `Ray Serve`, `FastAPI`, and `HuggingFace` embedding ("sentence-transformers/all-mpnet-base-v2")
+  * Web application 2, **Build a search tool** with `HuggingFace` embedding ("sentence-transformers/all-MiniLM-L6-v2"), `FAISS` (vectore store for RAG), `Ray` (Distributed computing, Serve), `FastAPI`
 
+    * Enable CUDA, and install torch versions for GPU in the Dockerfile.
+    * In a Dev Container terminal, build index and the index will be saved under `/faiss_index`
+      ```python
+      $ cd chapter9/ray
+      $ python build_index.py
+      ```
+
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-20%2018_44_11-chapter9_ray_build_faiss_index.jpg" width=800>  
+
+  <br>  
+
+    * Run `$ python serve_index.py` to deploy the app, or do it in bash.
+      ```python
+      $ ray stop --force
+      $ ray start --head
+      $ serve deploy serve_index.yaml
+      ```
+
+    * Run queries via url, or run `$ python test_client.py` to test the app.  
+      E.g.  
+      http://localhost:8000/?query=How%20can%20Ray%20help%20with%20deploying%20LLMs%3F  
+      http://localhost:8000/search?query=How%20can%20Ray%20help%20with%20deploying%20LLMs%3F&n_results=3   
+
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-21%2000_46_40-localhost_8000_search_query%3DHow%20can%20Ray%20help%20with%20deploying%20LLMs%253F%26n_results%3D3.jpg" width=800>  
+
+  <br>  
+
+    * Check the Ray Serve dashboard at http://localhost:8265
+
+  <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-21%2000_50_06-ray%20serve%20dashboard.jpg" width=800>  
+
+  <br>  
+    
 <br>
 
 * **Chapter 2** 
