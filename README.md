@@ -103,6 +103,13 @@
 
   <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-13%2006_11_56-generative_ai_with_langchain%20-%20LangSmith.jpg" width=800> 
 
+  <br>  
+  
+  * Tools
+    * Prompt tracking with `promptwatch`
+    * Trace and assess with `LangChain` ReAct agent
+
+
 <br>  
 
 * [**Chapter 4**](https://drive.google.com/drive/folders/1Bgeuq4lJLkV-_rMOBgUNTGL3GVrHh71h)      

@@ -3,7 +3,8 @@ FROM continuumio/miniconda3:23.9.0-0
 
 ENV PIP_DEFAULT_TIMEOUT=1000
 
-RUN apt-get update && apt-get install -y pandoc wget build-essential && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y pandoc wget build-essential iputils-ping \
+    && rm -rf /var/lib/apt/lists/*
 
 # Update the environment:
 COPY requirements.txt .
