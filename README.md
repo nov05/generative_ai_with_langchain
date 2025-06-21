@@ -9,7 +9,9 @@
 * Environments:
   * For Jupyter notebooks: `Google Colab` (free version)
   * For local applications: `Windows 11`, `VS Code` with `Dev Container`, `Docker Desktop`, `WSL2` (Ubuntu-22.04)  
-  * Model related services: `LangSmith` APIs, `Google Cloud Platform` (GCP, with billing account, service account, VertexAI APIs), `OpenAI` APIs (with billing), `Anthropic` APIs (with billing), `Mistral AI` APIs, `Replicate` APIs (with [billing](https://replicate.com/account/billing)), `Stability AI` APIs (with [billing](https://platform.stability.ai/account/credits)), `HuggingFace` APIs
+  * Model related services: `LangSmith` APIs, `Google Cloud Platform` (GCP, with billing account, service account, VertexAI APIs), `OpenAI` APIs (with billing), `Anthropic` APIs (with billing), `Mistral AI` APIs, `Replicate` APIs (with [billing](https://replicate.com/account/billing)), `Stability AI` APIs (with [billing](https://platform.stability.ai/account/credits)), `HuggingFace` APIs   
+  
+    [<img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/icons/youtube_red_2000x2000.png" width=20> Create Dev Container](https://youtu.be/HtXdJ5J0DLY?t=25)  
 
 <br>  
 
