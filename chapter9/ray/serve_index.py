@@ -2,6 +2,11 @@
     Ray Server with pre-built FAISS index
     Loads the index and serves the search API (runs continuously)
 """
+# Nov05: You can $ python serve_index.py to run the app.
+#        Or you can run the following command in bash to deploy the app.
+# $ ray stop --force
+# $ ray start --head
+# $ serve deploy serve_index.yaml
 
 from fastapi import FastAPI
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -19,7 +24,7 @@ INIT_NUM_GPUS = None
 # Initialize Ray
 # ray.init()
 # Define our FastAPI app
-# app = FastAPI()
+app = FastAPI()
 
 
 @serve.deployment
@@ -111,54 +116,51 @@ Please rebuild the index by running:
             }
 
 
-# # For testing the deployment locally
-# @app.get("/search")
-# async def search(query: str = ""):
-#     handle = serve.get_deployment_handle("SearchDeployment")
-#     return await handle.remote({"query_params": {"query": query}})
+# For testing the deployment locally
+@app.get("/search")
+async def search(query: str = ""):
+    handle = serve.get_deployment_handle("SearchDeployment")
+    return await handle.remote({"query_params": {"query": query}})
 
 
-# Nov05: If you deploy in bash, comment out the main block.
-'''
-$ ray stop --force
-$ ray start --head
-$ serve deploy serve_index.yaml
-'''
 deployment = SearchDeployment.bind()
-# if __name__ == "__main__":
 
-#     try:
-#         import ray
-#         ray.init(
-#             num_cpus=INIT_NUM_CPUS,
-#             num_gpus=INIT_NUM_GPUS,
-#             # ignore_reinit_error=True,
-#         )
-#         # Deploy the search service
-#         deployment = SearchDeployment.bind()
-#         serve.run(deployment, name="doc_search")
-#         print("\n" + "=" * 60)
-#         print("🟢 Service started successfully!")
-#         print("-" * 60)
-#         print("Service URL: http://localhost:8000/")
-#         print(
-#             "Example query: http://localhost:8000/?query=How%20can%20Ray%20help%20with%20deploying%20LLMs%3F"
-#         )
-#         print("=" * 60 + "\n")
-#         # Added by Nov05: Keep the script alive for 3600s (1 hour)
-#         # serve.run() alone doesn’t block.
-#         while True:
-#             time.sleep(3600)
-#     except FileNotFoundError as e:
-#         # Index not found error is already handled with a clear message
-#         import sys
-#         sys.exit(1)
-#     except Exception as e:
-#         print(
-#             f"⚠️  ERROR: Failed to start service: {e}\n"
-#             "If this is related to the FAISS index, please rebuild it with:"
-#             "$ python build_index.py")
-#         import traceback
-#         traceback.print_exc()
-#         import sys
-#         sys.exit(1)
+
+if __name__ == "__main__":
+
+    try:
+        import ray
+        ray.init(
+            num_cpus=INIT_NUM_CPUS,
+            num_gpus=INIT_NUM_GPUS,
+            # ignore_reinit_error=True,
+        )
+        serve.run(deployment, name="serve_index")
+        print("\n" + "=" * 60)
+        print("🟢 Service started successfully!")
+        print("-" * 60)
+        print("Service URL: http://localhost:8000/")
+        print(
+            "Example query:\n"
+            "http://localhost:8000/?query=How%20can%20Ray%20help%20with%20deploying%20LLMs%3F\n"
+            "http://localhost:8000/search?query=How%20can%20Ray%20help%20with%20deploying%20LLMs%3F&n_results=3"
+
+        )
+        print("=" * 60 + "\n")
+        # Added by Nov05: Keep the script alive for 3600s (1 hour)
+        # serve.run() alone doesn’t block.
+        while True:
+            time.sleep(3600)
+    except FileNotFoundError as e:
+        # Index not found error is already handled with a clear message
+        import sys
+        sys.exit(1)
+    except Exception as e:
+        print(
+            f"⚠️  ERROR: Failed to start service: {e}\n"
+            "If this is related to the FAISS index, please rebuild it with:"
+            "$ python build_index.py")
+        import traceback
+        traceback.print_exc()
+        import sys
+        sys.exit(1)
