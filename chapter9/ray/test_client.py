@@ -29,10 +29,10 @@ def test_search(query="How can Ray help with deploying LLMs?"):
                 f"Content: {result.get('content', '')[:200]}...\n"
             )
     except requests.exceptions.RequestException as e:
-        print(f"Error making request: {e}")
+        print(f"⚠️  Error making request: {e}")
     except json.JSONDecodeError:
         print(
-            f"Error parsing response as JSON. Response text: {response.text[:500]}"
+            f"⚠️  Error parsing response as JSON. Response text: {response.text[:500]}"
         )
 
 

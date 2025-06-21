@@ -1,6 +1,7 @@
 """
     Build and save FAISS index from Ray documentation (run once)
 """
+# Nov05: Code refactored on 2025-06-20
 
 import gc
 from langchain_community.vectorstores import FAISS
@@ -23,6 +24,7 @@ PREPROCESS_NUM_CPUS = 0.25
 EMBED_BATCH_SIZE = int(1e4)  # Embedding chunk batch size
 EMBED_NUM_CPUS = None
 EMBED_NUM_GPUS = 1
+INDEX_DIR = "faiss_index"
 
 
 # Nov05: For limited memory environment
@@ -77,7 +79,7 @@ def embed_chunks(chunks, embedder):
 
 def build_index(
     base_url="https://docs.ray.io/en/master/",
-    index_dir="faiss_index",
+    index_dir=INDEX_DIR,
     checkpoint_dir="cache",
     embedder=None,
 ):

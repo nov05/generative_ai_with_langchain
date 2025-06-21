@@ -1,0 +1,23 @@
+# serve_index.yaml, created by Nov05 on 2025-06-20 
+# https://docs.ray.io/en/latest/serve/production-guide/index.html
+proxy_location: EveryNode
+
+http_options:
+  host: 0.0.0.0
+  port: 8000
+
+applications:
+  - name: serve_index
+    route_prefix: "/"
+    import_path: serve_index:deployment
+    runtime_env:
+      pip:
+        - langchain_huggingface
+        - langchain_community
+        - sentence-transformers
+        - fastapi
+        - ray[serve]
+    deployments:
+      - name: SearchDeployment
+        num_replicas: 1
+
