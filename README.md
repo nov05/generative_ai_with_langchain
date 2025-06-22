@@ -4,8 +4,8 @@
 * [General notes](https://docs.google.com/document/d/1weC8RowQGk59pVyfBUwmcf3lb6yDYPqw2Hc6QxkNKuM)   
 * [**Colab notebooks**](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN) (Chapter 2-8, **39 Jupyter notebooks** in Colab) ✅  
   * Note:   
-    Numerous small updates — including API adjustments, bug fixes, added comments and notes, and formatting improvements—have been made to the original Jupyter notebooks to enhance clarity and ensure reproducibility, especially when running them in `Google Colab`.  
-* [**Applications**](https://github.com/nov05/generative_ai_with_langchain/tree/second_edition/chapter9) (Chapter 9, **2 applications**, running locally) ✅   
+    Numerous small updates — including API adjustments (The `LangChain` libraries are still evolving rapidly), bug fixes, added comments and notes, and formatting improvements—have been made to the original Jupyter notebooks to enhance clarity and ensure reproducibility, especially when running them in `Google Colab`.  
+* [**Applications**](https://github.com/nov05/generative_ai_with_langchain/tree/second_edition/chapter9) (Chapter 9, **2 applications**, running locally in VS Code `Dev Container`) ✅   
   * Note:  
     The [`requirements.txt`](https://github.com/nov05/generative_ai_with_langchain/blob/second_edition/requirements.txt) and [`Dockerfile`](https://github.com/nov05/generative_ai_with_langchain/blob/second_edition/Dockerfile) have been updated, [the `.devcontainer` folder](https://github.com/nov05/generative_ai_with_langchain/tree/second_edition/.devcontainer) added to the repository, and minor bug fixes and changes applied to the original code.  
 * Environments:
@@ -78,6 +78,7 @@
   
     * [Prompt tracking with `promptwatch`](https://github.com/nov05/generative_ai_with_langchain/blob/second_edition/chapter9/tools/prompt_tracking.py)   
     * [Trace and assess with `LangChain` ReAct agent](https://github.com/nov05/generative_ai_with_langchain/blob/second_edition/chapter9/tools/tracing.py)  
+      <img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/generative_ai_with_langchain/2025-06-21%2023_42_12-ch9%20tracing.jpg" width=800>  
 
 <br>
 
