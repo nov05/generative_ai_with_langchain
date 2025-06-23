@@ -9,7 +9,7 @@
   * Note:  
     The [`requirements.txt`](https://github.com/nov05/generative_ai_with_langchain/blob/second_edition/requirements.txt) and [`Dockerfile`](https://github.com/nov05/generative_ai_with_langchain/blob/second_edition/Dockerfile) have been updated, [the `.devcontainer` folder](https://github.com/nov05/generative_ai_with_langchain/tree/second_edition/.devcontainer) added to the repository, and minor bug fixes and changes applied to the original code.  
 * Environments:
-  * For Jupyter notebooks: `Google Colab` (free version)
+  * For Jupyter notebooks: `Google Colab` (free tier)
   * For local applications: `Windows 11`, `VS Code` with `Dev Container` (`CUDA` enabled, `Nvidia` GPU), `Docker Desktop`, `WSL2` (Ubuntu-22.04)  
   * Model related services: `LangSmith` APIs, `Google Cloud Platform` (GCP, with billing account, service account, VertexAI APIs), `OpenAI` APIs (with billing), `Anthropic` APIs (with billing), `Mistral AI` APIs, `Replicate` APIs (with [billing](https://replicate.com/account/billing)), `Stability AI` APIs (with [billing](https://platform.stability.ai/account/credits)), `HuggingFace` APIs   
 
