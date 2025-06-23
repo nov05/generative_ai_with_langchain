@@ -1,7 +1,7 @@
 
 ### 👉 **"Generative AI with LangChain" hands-on**
 
-* [General notes](https://docs.google.com/document/d/1weC8RowQGk59pVyfBUwmcf3lb6yDYPqw2Hc6QxkNKuM)   
+* [General notes](https://docs.google.com/document/d/1weC8RowQGk59pVyfBUwmcf3lb6yDYPqw2Hc6QxkNKuM), [Summary post](https://www.linkedin.com/posts/wenjingliu7_llm-langchain-handson-activity-7342815619475566592-Yu0H/)     
 * [**Colab notebooks**](https://drive.google.com/drive/u/1/folders/1ymnY4ek6FJIviQRkI7CZnAgoMlxLwuGN) (Chapter 2-8, **39 Jupyter notebooks** in Colab) ✅  
   * Note:   
     Numerous small updates — including API adjustments (The `LangChain` libraries are still evolving rapidly), bug fixes, added comments and notes, and formatting improvements—have been made to the original Jupyter notebooks to enhance clarity and ensure reproducibility, especially when running them in `Google Colab`.  
@@ -40,7 +40,8 @@
 
   <br>  
 
-  * Web application 2, **Build a search tool** with `HuggingFace` embedding ("sentence-transformers/all-MiniLM-L6-v2"), `FAISS` (vectore store for RAG), `Ray` (Distributed computing, Serve), `FastAPI`
+  * Web application 2, **Build a search tool** with `HuggingFace` embedding model ("sentence-transformers/all-MiniLM-L6-v2"), `FAISS` (vectore store for RAG), `Ray` (Distributed computing, Serve), `FastAPI`    
+    [<img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/icons/youtube_red_2000x2000.png" width=20> Watch the demo video](https://www.youtube.com/watch?v=63BmOiUqKfE)  
 
     * Enable CUDA, and install torch versions for GPU in the Dockerfile.
     * In a Dev Container terminal, build index and the index will be saved under `/faiss_index`
