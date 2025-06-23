@@ -89,4 +89,3 @@ def query_agent_with_stream(agent: AgentExecutor, query: str):
         # Each `event` is a dict, e.g., {"steps":[...], "messages": [...]}
         print(event)
         yield event
-    # return event

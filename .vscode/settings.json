@@ -1,5 +1,8 @@
 // .vscode/settings.json
 {
   "python.defaultInterpreterPath": "/opt/conda/bin/python",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "python.analysis.extraPaths": [
+    "./chapter7/software_development"
+  ]
 }

@@ -1,7 +1,6 @@
 """Task planner and executor for software development."""
 
-from chapter9.fastapi.config import set_environment
-from langchain.chains import LLMChain
+# from langchain.chains import LLMChain
 from langchain_community.tools import DuckDuckGoSearchResults
 from langchain_core.prompts import PromptTemplate
 from langchain_core.tools import BaseTool, Tool
@@ -10,11 +9,13 @@ from langchain_experimental.plan_and_execute import (
     load_agent_executor,
     load_chat_planner,
 )
-from langchain_openai import ChatOpenAI
-
-from chapter7.software_development.python_developer import DEV_PROMPT, PythonDeveloper, PythonExecutorInput
-
+from langchain_openai import OpenAI
+from langchain_community.chat_models import ChatOpenAI
+# Local imports
+from python_developer import DEV_PROMPT, PythonDeveloper, PythonExecutorInput
+from config import set_environment
 set_environment()
+
 
 todo_prompt = PromptTemplate.from_template(
     "You are a planner who is an expert at coming up with requirements, "
@@ -131,4 +132,5 @@ agent_executor = PlanAndExecute(
 
 
 if __name__ == "__main__":
+
     agent_executor.run("Write a tetris game in python!")
