@@ -1,14 +1,17 @@
 """Agent functionality."""
+# Code updated by Nov05 on 2025-06-23
+
 import pandas as pd
-from chapter9.fastapi.config import set_environment
 from langchain.agents import AgentExecutor
 from langchain_core.prompts import PromptTemplate
 from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
+from langchain_experimental.tools.python.tool import PythonREPLTool
 from langchain_openai import ChatOpenAI
-
-from data_science.prompts import PROMPT
-
+# Local imports
+from prompts import PROMPT
+from config import set_environment
 set_environment()
+
 
 def create_agent(csv_file: str) -> AgentExecutor:
     """
@@ -22,8 +25,15 @@ def create_agent(csv_file: str) -> AgentExecutor:
     """
     llm = ChatOpenAI()
     df = pd.read_csv(csv_file)
-    agent = create_pandas_dataframe_agent(llm, df, verbose=True)
+    agent = create_pandas_dataframe_agent(
+        llm,
+        df,
+        verbose=True,
+        # allow_dangerous_code=True,  # Warning: No longer supported
+        handle_parsing_errors=True,
+    )
     return agent
+
 
 def query_agent(agent: AgentExecutor, query: str) -> str:
     """Query an agent and return the response."""
