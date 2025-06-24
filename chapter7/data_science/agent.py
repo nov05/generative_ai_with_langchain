@@ -44,7 +44,9 @@ class DataAgent:
                  csv_file: str,
                  llm=ChatOpenAI(),
                  verbose: bool = True,
-                 allow_dangerous_code: bool = True):
+                 allow_dangerous_code: bool = True,
+                 handle_parsing_errors: bool = True,
+                 ):
         """
         Initialize the data agent with a CSV file.
 
@@ -64,7 +66,7 @@ class DataAgent:
             verbose=self.verbose,
             allow_dangerous_code=self.allow_dangerous_code,
             agent_executor_kwargs={
-                "handle_parsing_errors": True
+                "handle_parsing_errors": handle_parsing_errors
             },
         )
 
