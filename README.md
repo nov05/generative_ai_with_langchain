@@ -218,6 +218,7 @@
 2025-06-02 Repo forked  
 2025-06-16 All notebooks (Chapter 1-8) done  
 2025-06-21 All applications (Chapter 9) done  
+2025-06-25 Added [information](https://github.com/benman1/generative_ai_with_langchain/issues/86)      
 
 <br><br><br>  
 
